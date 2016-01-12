@@ -28,14 +28,15 @@ class main {
        flexible conditional statements make the program more user friendly */ 
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double 
-       for (;;) {
-           System.out.println("Guess a number: ");
-           int input = scanner.nextInt();
-            if (input < number)
+        for (;;) {
+            System.out.println("Guess a number: ");
+            int input = scanner.nextInt();
+            switch (input) {
+                case (input < number):
                 System.out.println("Too low! " + insults[(int) (0 + 5 * Math.random())]);
-            else if (input > number)
+            case (input > number):
                 System.out.println("Too high! " + insults[(int) (0 + 5 * Math.random())]);
-            else /* input == number */
+            case (input == number):
                 System.out.println("Correct!\n");
                 break;
         } 
