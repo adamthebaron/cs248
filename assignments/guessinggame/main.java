@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.*;
 
 class main {
+    /* array of insults used for guess response */
     static String[] insults = {
     "I bet you use IE.",
     "You probably use nano instead of vi.",
@@ -12,8 +13,10 @@ class main {
     "Might as well call you Deacon Blues... no? No one got that one?"
     };
 
-    /* ask user if they wish to play again or quit, then return to guess() or main() accordingly */
-    /* return 1 = guess(); return 0 = main() */
+    /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
+     * return 1 = guess(); return 0 = main().
+     * flexible conditional statements make the program more user friendly
+     * however are somewhat unecessary */ 
     private static int response(Scanner scanner) {
         System.out.print("Would you like to play again?: ");
         String answer = scanner.nextLine(); 
@@ -24,8 +27,7 @@ class main {
         return -1;
     }
 
-    /* receive/check input, then ask the user if they want to play again and call response()
-       flexible conditional statements make the program more user friendly */ 
+    /* receive/check input, then ask the user if they want to play again and call response() */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double 
         for (;;) {
@@ -42,9 +44,7 @@ class main {
         } 
         if (response(scanner) == 1)
             guess(scanner);
-        else if (response(scanner) == 0)
-            return 0;
-        return -1;
+        return 0;
     }
 
     /* main function; greet, init scanner, and call guess() */
