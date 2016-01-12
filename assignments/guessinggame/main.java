@@ -12,7 +12,7 @@ class main {
     "Might as well call you Deacon Blues... no? No one got that one?"
     };
 
-    public static int response(Scanner scanner) {
+    private static int response(Scanner scanner) {
         System.out.println("Would you like to play again?");
         String answer = scanner.nextLine(); 
         if (answer == "yes" || answer == "Yes" || answer == "y" || answer == "Y")
@@ -42,7 +42,7 @@ class main {
     }
 
     /* main function; greet, init scanner, and call guess() */
-    private static int main(String[] args) {
+    public static int main(String[] args) {
         System.out.println("Welcome!\n");
         Scanner scanner = new Scanner(System.in);
         if (guess(scanner) == 0)
