@@ -12,6 +12,9 @@ class main {
     "signal 11: segmentation fault (ur a loser).",
     "Might as well call you Deacon Blues... no? No one got that one?"
     };
+    
+    /* Scanner instance used for user input */
+    static Scanner scanner = new Scanner(System.in);
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
      * flexible conditional statements make the program more user friendly
@@ -57,7 +60,6 @@ class main {
     /* main function; greet, init scanner, and call guess() */
     public static void main(String[] args) {
         System.out.print("Welcome!\nTry to guess a number between 1 and 100.\n");
-        Scanner scanner = new Scanner(System.in);
         if (guess(scanner) == 0)
             System.out.print("Thanks for playing!\n");
     }
