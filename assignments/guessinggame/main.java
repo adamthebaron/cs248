@@ -12,7 +12,7 @@ class main {
     "Might as well call you Deacon Blues... no? No one got that one?"
     };
 
-    private static int response(Scanner scanner) {
+    public static int response(Scanner scanner) {
         System.out.println("Would you like to play again?");
         String answer = scanner.nextLine(); 
         if (answer == "yes" || answer == "Yes" || answer == "y" || answer == "Y")
