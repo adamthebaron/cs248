@@ -14,7 +14,7 @@ class main {
     };
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
-     * return 1 = guess(); return 0 = main().
+     * return 1 = guess()
      * flexible conditional statements make the program more user friendly
      * however are somewhat unecessary */ 
     private static int response(Scanner scanner) {
