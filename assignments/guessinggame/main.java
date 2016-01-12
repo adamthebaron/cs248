@@ -9,7 +9,7 @@ class main {
     "You probably use nano instead of vi.",
     "echo your_life_story.txt > /dev/null.",
     "These insults are about as lame as I was on prom night. Oh, we're supposed to insult the user.",
-    "signal 11: segmentation fault (ur a loser).",
+    "signal 11: segmentation fault (what are you thinking?).",
     "Might as well call you Deacon Blues... no? No one got that one?"
     };
     
