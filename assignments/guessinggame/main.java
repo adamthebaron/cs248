@@ -25,15 +25,18 @@ class main {
     /* receive/check input, then ask the user if they want to play again and call response()
        flexible conditional statements make the program more user friendly */ 
     private static int guess(Scanner scanner) {
-        System.out.println("Guess a number: ");
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double 
-        for (int input = scanner.nextInt(); input != number; /* no increment */) {
+        for (;;) {
+            System.out.println("Guess a number: ");
+            int input = scanner.nextInt();
             if (input < number)
                 System.out.println("Too low! " + insults[(int) (0 + 5 * Math.random())]);
             else if (input > number)
                 System.out.println("Too high! " + insults[(int) (0 + 5 * Math.random())]);
+            else if (input == number)
+                System.out.println("Correct!\n");
+                break;
         } 
-        System.out.println("Correct!\n");
         if (response(scanner) == 1)
                 guess(scanner);
         else if (response(scanner) == 0)
