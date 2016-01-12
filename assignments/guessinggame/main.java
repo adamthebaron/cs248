@@ -12,6 +12,8 @@ class main {
     "Might as well call you Deacon Blues... no? No one got that one?"
     };
 
+    /* ask user if they wish to play again or quit, then return to guess() or main() accordingly */
+    /* return 1 = guess(); return 0 = main() */
     private static int response(Scanner scanner) {
         System.out.println("Would you like to play again?");
         String answer = scanner.nextLine(); 
@@ -26,9 +28,9 @@ class main {
        flexible conditional statements make the program more user friendly */ 
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double 
-        for (;;) {
-            System.out.println("Guess a number: ");
-            int input = scanner.nextInt();
+       for (;;) {
+           System.out.println("Guess a number: ");
+           int input = scanner.nextInt();
             if (input < number)
                 System.out.println("Too low! " + insults[(int) (0 + 5 * Math.random())]);
             else if (input > number)
