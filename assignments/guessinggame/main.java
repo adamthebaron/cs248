@@ -37,7 +37,7 @@ class main {
             case (input > number):
                 System.out.println("Too high! " + insults[(int) (0 + 5 * Math.random())]);
             case (input == number):
-                System.out.println("Correct!\n");
+                System.out.println("Correct!");
                 break;
         } 
         if (response(scanner) == 1)
@@ -49,7 +49,7 @@ class main {
 
     /* main function; greet, init scanner, and call guess() */
     public static void main(String[] args) {
-        System.out.println("Welcome!\n");
+        System.out.println("Welcome!");
         Scanner scanner = new Scanner(System.in);
         if (guess(scanner) == 0)
             System.out.println("Thanks for playing!");
