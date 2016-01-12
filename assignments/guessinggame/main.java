@@ -5,12 +5,12 @@ import java.util.*;
 class main {
     /* array of insults used for guess response */
     static String[] insults = {
-    "I bet you use IE.",
-    "You probably use nano instead of vi.",
-    "echo your_life_story.txt > /dev/null.",
-    "These insults are about as lame as I was on prom night. Oh, we're supposed to insult the user.",
-    "signal 11: segmentation fault (what are you thinking?).",
-    "Might as well call you Deacon Blues... no? No one got that one?"
+        "I bet you use IE.",
+        "You probably use nano instead of vi.",
+        "echo your_life_story.txt > /dev/null.",
+        "These insults are about as lame as I was on prom night. Oh, we're supposed to insult the user.",
+        "signal 11: segmentation fault (what are you thinking?).",
+        "Might as well call you Deacon Blues... no? No one got that one?"
     };
     
     /* Scanner instance used for user input */
@@ -24,9 +24,9 @@ class main {
     private static int response(Scanner scanner) {
         System.out.print("Would you like to play again?: ");
         String answer = scanner.nextLine(); 
-        if (answer == "yes" || answer == "Yes" || answer == "y" || answer == "Y")
+        if (answer.equals("yes") || answer.equals("Yes") || answer.equals("y") || answer.equals("Y"))
             guess(scanner);
-        else if (answer == "no" || answer == "No" || answer == "n" || answer == "N")
+        else if (answer.equals("no") || answer.equals("No") || answer.equals("n") || answer.equals("N"))
             return 0;
         else {
             System.out.print("Not sure what you mean, please answer yes or no.\n");
