@@ -14,24 +14,31 @@ class main {
     };
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
-     * return 1 = guess()
      * flexible conditional statements make the program more user friendly
-     * however are somewhat unecessary */ 
+     * however are somewhat unecessary. 
+     * @param scanner global scanner used for user input
+     * @return        return 0 to go to main */ 
     private static int response(Scanner scanner) {
         System.out.print("Would you like to play again?: ");
         String answer = scanner.nextLine(); 
         if (answer == "yes" || answer == "Yes" || answer == "y" || answer == "Y")
-            return 1;
+            guess(scanner);
         else if (answer == "no" || answer == "No" || answer == "n" || answer == "N")
             return 0;
+        else {
+            System.out.print("Not sure what you mean, please answer yes or no.\n");
+            response(scanner);
+        }
         return -1;
     }
 
-    /* receive/check input, then ask the user if they want to play again and call response() */
+    /* receive/check input, then ask the user if they want to play again and call response() 
+     * @param scanner global scanner used for user input
+     * @return        0 to go to main */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double 
         for (;;) {
-            System.out.print("Guess a number: ");
+            System.out.print("What is your guess?: ");
             int input = scanner.nextInt();
             if (input < number)
                 System.out.print("Too low! " + insults[(int) (0 + 5 * Math.random())] + "\n");
@@ -49,7 +56,7 @@ class main {
 
     /* main function; greet, init scanner, and call guess() */
     public static void main(String[] args) {
-        System.out.print("Welcome!\n");
+        System.out.print("Welcome!\nTry to guess a number between 1 and 100.\n");
         Scanner scanner = new Scanner(System.in);
         if (guess(scanner) == 0)
             System.out.print("Thanks for playing!\n");
