@@ -1,4 +1,4 @@
-/* Written by Adam Kessler. 1/11/16 */
+/* @author Adam Kessler */
 import java.io.*;
 import java.util.*;
 
