@@ -33,7 +33,7 @@ class main {
                 System.out.println("Too low! " + insults[(int) (0 + 5 * Math.random())]);
             else if (input > number)
                 System.out.println("Too high! " + insults[(int) (0 + 5 * Math.random())]);
-            else if (input == number)
+            else /* input == number */
                 System.out.println("Correct!\n");
                 break;
         } 
