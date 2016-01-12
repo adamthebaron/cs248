@@ -42,12 +42,10 @@ class main {
     }
 
     /* main function; greet, init scanner, and call guess() */
-    public static int main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Welcome!\n");
         Scanner scanner = new Scanner(System.in);
         if (guess(scanner) == 0)
-            return 0;
-        else
-            return -1;
+            System.out.println("Thanks for playing!");
     }
 }
