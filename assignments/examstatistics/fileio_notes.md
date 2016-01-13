@@ -6,3 +6,5 @@
     Ex: PrintWriter write = new PrintWriter(new FileWriter(name_of_file));
     Then use the object's methods to write strings to the file
     Ex: write.println("some_string");
+- Close the file after writing to it
+    write.close();

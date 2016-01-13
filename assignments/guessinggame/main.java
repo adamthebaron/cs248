@@ -14,7 +14,13 @@ class main {
     };
     
     /* Scanner instance used for user input */
-    static Scanner scanner = new Scanner(System.in);
+    static OutputStream scanner = new OutputStream(System.in);
+
+    /* PrintWriter instance to log all input/output */
+    static PrintWriter write = new PrintWriter(new FileWriter("logfile"));
+
+    /* TeeOutputStream instance used to write to both stdout and log */
+    static TeeOutputStream  writer = new TeeOutputStream(System.in, write);
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
      * flexible conditional statements make the program more user friendly
@@ -24,9 +30,9 @@ class main {
     private static int response(Scanner scanner) {
         System.out.print("Would you like to play again?: ");
         String answer = scanner.nextLine(); 
-        if (answer.equals("yes") || answer.equals("Yes") || answer.equals("y") || answer.equals("Y"))
+        if (answer.charAt(0) == "y" || answer.charAt(0) == "Y")
             guess(scanner);
-        else if (answer.equals("no") || answer.equals("No") || answer.equals("n") || answer.equals("N"))
+        else if (answer.charAt(0) == "n" || answer.charAt(0) == "N")
             return 0;
         else {
             System.out.print("Not sure what you mean, please answer yes or no.\n");
@@ -40,11 +46,10 @@ class main {
      * @return        0 to go to main */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double
-        PrintWriter write = new PrintWriter(new FileWriter("logfile")); // log all output
 			for (int i = 0; ; i++) {
 				int input = 0;
-				System.out.print("What is your guess?: ");
-                write.println("
+				//System.out.print("What is your guess?: ");
+
 				try {
 					input = scanner.nextInt();
 				}
