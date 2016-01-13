@@ -13,14 +13,14 @@ class main {
         "Might as well call you Deacon Blues... no? No one got that one?"
     };
     
-    /* Scanner instance used for user input */
-    static OutputStream scanner = new OutputStream(System.in);
+    /* PrintStream instance used for user input */
+    static PrintStream stdout = new PrintStream(System.out);
 
     /* PrintWriter instance to log all input/output */
     static PrintWriter write = new PrintWriter(new FileWriter("logfile"));
 
     /* TeeOutputStream instance used to write to both stdout and log */
-    static TeeOutputStream  writer = new TeeOutputStream(System.in, write);
+    //static TeeOutputStream  writer = new TeeOutputStream(stdout, write);
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
      * flexible conditional statements make the program more user friendly
@@ -30,9 +30,9 @@ class main {
     private static int response(Scanner scanner) {
         System.out.print("Would you like to play again?: ");
         String answer = scanner.nextLine(); 
-        if (answer.charAt(0) == "y" || answer.charAt(0) == "Y")
+        if (answer.startsWith("y") || answer.startsWith("Y"))
             guess(scanner);
-        else if (answer.charAt(0) == "n" || answer.charAt(0) == "N")
+        else if (answer.startsWith("n") || answer.startsWith("N"))
             return 0;
         else {
             System.out.print("Not sure what you mean, please answer yes or no.\n");
