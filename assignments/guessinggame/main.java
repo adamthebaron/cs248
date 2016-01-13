@@ -40,16 +40,10 @@ class main {
      * @return        0 to go to main */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double
-			for (;;) {
-				int input = 0;
+		int input = 0;
+		for (;;) {
 				System.out.print("What is your guess?: ");
-				try {
-					input = scanner.nextInt();
-				}
-				catch (InputMismatchException ex) {
-					System.out.print("Input is not a number.\n");
-					continue;
-				}
+				input = scanner.nextInt();
                 if (input < number)
 					System.out.print("Too low! " + insults[(int) (0 + 5 * Math.random())] + "\n");
                 else if (input > number)
