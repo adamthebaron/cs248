@@ -40,9 +40,11 @@ class main {
      * @return        0 to go to main */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double
-			for (;;) {
+        PrintWriter write = new PrintWriter(new FileWriter("logfile")); // log all output
+			for (int i = 0; ; i++) {
 				int input = 0;
 				System.out.print("What is your guess?: ");
+                write.println("
 				try {
 					input = scanner.nextInt();
 				}
@@ -55,7 +57,7 @@ class main {
                 else if (input > number)
                 	System.out.print("Too high! " + insults[(int) (0 + 5 * Math.random())] + "\n");
                 else if (input == number) {
-                	System.out.print("Correct!\n");
+                	System.out.print("Correct!\nIt took you " + i + " times to find the right number.\n");
 					break;
 				}
 			}
