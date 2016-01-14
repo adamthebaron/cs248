@@ -47,3 +47,15 @@ public String toString() {
     return "Name = " + name + "\n" + "Species = " + species + "\n" + "Fins = " +
     fins + "\n" + "Color = " + color + "\n";
 }
+
+/* access specific constructor variable */
+public String getName() { return name; }
+public String getSpecies() { return species; }
+public int getFins() { return fins; }
+public int getColor() { return color; }
+```
+To run a method (function) inside a specific instance of a class, you use this
+syntax:
+```java
+String name = fish.getName();
+```
