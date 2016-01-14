@@ -40,30 +40,24 @@ class main {
      * @return        0 to go to main */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double
-<<<<<<< HEAD
 		int input = 0;
-		for (;;) {
-				System.out.print("What is your guess?: ");
-=======
-			for (int i = 1; ; i++) {
-				int input = 0;
-				System.out.print("What is your guess?: ");
-				while (!scanner.hasNextInt()) {
-					System.out.print("Please enter a number from 1 - 100.\n");
-					System.out.print("What is your guess?: ");
-					scanner.next();
-				}
->>>>>>> input_sanitization
-				input = scanner.nextInt();
-                if (input < number)
-					System.out.print("Too low! " + insults[(int) (0 + 5 * Math.random())] + "\n");
-                else if (input > number)
-                	System.out.print("Too high! " + insults[(int) (0 + 5 * Math.random())] + "\n");
-                else if (input == number) {
-                	System.out.print("Correct!\nIt took you " + i + " tries to find the right number.\n");
-					break;
-				}
+    	for (int i = 1; ; i++) {
+			System.out.print("What is your guess?: ");
+		    while (!scanner.hasNextInt()) {
+		    	System.out.print("Please enter a number from 1 to 100.\n");
+			    System.out.print("What is your guess?: ");
+		    	scanner.next();
+		    }
+			input = scanner.nextInt();
+            if (input < number)
+				System.out.print("Too low! " + insults[(int) (0 + 5 * Math.random())] + "\n");
+            else if (input > number)
+            	System.out.print("Too high! " + insults[(int) (0 + 5 * Math.random())] + "\n");
+            else if (input == number) {
+            	System.out.print("Correct!\nIt took you " + i + " tries to find the right number.\n");
+				break;
 			}
+		}
         if (response(scanner) == 1)
             guess(scanner);
         return 0;
