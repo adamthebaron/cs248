@@ -53,6 +53,13 @@ public String getName() { return name; }
 public String getSpecies() { return species; }
 public int getFins() { return fins; }
 public int getColor() { return color; }
+
+public void sharkAttack() {
+    if (fins > 0)
+        fins--;
+    else
+        fins = 0; 
+}
 ```
 To run a method (function) inside a specific instance of a class, you use this
 syntax:
