@@ -13,18 +13,11 @@ class main {
         "Might as well call you Deacon Blues... no? No one got that one?"
     };
     
-    /* PrintStream instance used for user input */
-    static PrintStream stdout = new PrintStream(System.out);
-
-    /* PrintWriter instance to log all input/output */
-    static PrintWriter write = new PrintWriter(new FileWriter("logfile"));
-
-    /* TeeOutputStream instance used to write to both stdout and log */
-    //static TeeOutputStream  writer = new TeeOutputStream(stdout, write);
+    /* Scanner instance used for user input */
+    static Scanner stdin = new Scanner(System.in);
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
-     * flexible conditional statements make the program more user friendly
-     * however are somewhat unecessary. 
+     * assume any answer that starts with y or n means "yes" or "no" respectively.
      * @param scanner global scanner used for user input
      * @return        return 0 to go to main */ 
     private static int response(Scanner scanner) {
@@ -32,8 +25,9 @@ class main {
         String answer = scanner.nextLine(); 
         if (answer.startsWith("y") || answer.startsWith("Y"))
             guess(scanner);
-        else if (answer.startsWith("n") || answer.startsWith("N"))
+        else if (answer.startsWith("n") || answer.startsWith("N")) {
             return 0;
+		}
         else {
             System.out.print("Not sure what you mean, please answer yes or no.\n");
             response(scanner);
@@ -46,23 +40,21 @@ class main {
      * @return        0 to go to main */
     private static int guess(Scanner scanner) {
         int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double
-			for (int i = 0; ; i++) {
+			for (int i = 1; ; i++) {
 				int input = 0;
-				//System.out.print("What is your guess?: ");
-
-				try {
-					input = scanner.nextInt();
+				System.out.print("What is your guess?: ");
+				while (!scanner.hasNextInt()) {
+					System.out.print("Please enter a number from 1 - 100.\n");
+					System.out.print("What is your guess?: ");
+					scanner.next();
 				}
-				catch (InputMismatchException ex) {
-					System.out.print("Input is not a number.\n");
-					continue;
-				}
+				input = scanner.nextInt();
                 if (input < number)
 					System.out.print("Too low! " + insults[(int) (0 + 5 * Math.random())] + "\n");
                 else if (input > number)
                 	System.out.print("Too high! " + insults[(int) (0 + 5 * Math.random())] + "\n");
                 else if (input == number) {
-                	System.out.print("Correct!\nIt took you " + i + " times to find the right number.\n");
+                	System.out.print("Correct!\nIt took you " + i + " tries to find the right number.\n");
 					break;
 				}
 			}
@@ -74,7 +66,9 @@ class main {
     /* main function; greet, init scanner, and call guess() */
     public static void main(String[] args) {
         System.out.print("Welcome!\nTry to guess a number between 1 and 100.\n");
-        if (guess(scanner) == 0)
+        if (guess(stdin) == 0) {
+			stdin.close();
             System.out.print("Thanks for playing!\n");
+		}
     }
 }
