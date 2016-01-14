@@ -53,7 +53,7 @@ class main {
             else if (input > number)
             	System.out.print("Too high! " + insults[(int) (0 + 5 * Math.random())] + "\n");
             else if (input == number) {
-            	System.out.print("Correct!\nIt took you " + i + " tries to find the right number.\n");
+            	System.out.print("Correct! It took you " + i + " tries to find the right number.\n");
 				break;
 			}
 		}
