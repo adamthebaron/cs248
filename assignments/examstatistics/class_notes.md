@@ -17,6 +17,10 @@
         Mutates data in object
     - Iterators
         Used with collections
+###Important Keywords
+    - static
+    - public
+    - private
 
 ##Example Class
 ```java
