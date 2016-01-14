@@ -17,21 +17,17 @@ class main {
     static Scanner stdin = new Scanner(System.in);
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
-     * assume any answer that starts with y or n means "yes" or "no" respectively.
      * @param scanner global scanner used for user input
      * @return        return 0 to go to main */ 
     private static int response(Scanner scanner) {
-        System.out.print("Would you like to play again?: ");
-        String answer = scanner.nextLine(); 
-        if (answer.startsWith("y") || answer.startsWith("Y"))
+        System.out.print("Would you like to play again (y/n)?: ");
+        char answer = scanner.next().charAt(0); 
+        if (answer == 'y' || answer == 'Y')
             guess(scanner);
-        else if (answer.startsWith("n") || answer.startsWith("N")) {
+        else if (answer == 'n' || answer == 'N')
             return 0;
-		}
-        else {
-            System.out.print("Not sure what you mean, please answer yes or no.\n");
-            response(scanner);
-        }
+        System.out.print("Not sure what you mean, please answer yes or no.\n");
+        response(scanner);
         return -1;
     }
 
