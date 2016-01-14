@@ -24,7 +24,7 @@ class main {
         char answer = scanner.next().charAt(0); 
         if (answer == 'y' || answer == 'Y')
             guess(scanner);
-        else if (answer == 'n' || answer == 'N')
+        if (answer == 'n' || answer == 'N')
             return 0;
         System.out.print("Not sure what you mean, please answer yes or no.\n");
         response(scanner);
@@ -35,8 +35,9 @@ class main {
      * @param scanner global scanner used for user input
      * @return        0 to go to main */
     private static int guess(Scanner scanner) {
-        int number = (int) (1 + 100 * Math.random()); // cast as int due to Math.random() returning double
-		int input = 0;
+        /* cast as int due to Math.random() returning double */
+        int number = (int) (1 + 100 * Math.random());
+        int input = 0;
     	for (int i = 1; ; i++) {
 			System.out.print("What is your guess?: ");
 		    while (!scanner.hasNextInt()) {
@@ -45,7 +46,9 @@ class main {
 		    	scanner.next();
 		    }
 			input = scanner.nextInt();
-            if (input < number)
+            if (input < 1 || input > 100)
+                System.out.print("Number not in range!\n");
+            else if (input < number)
 				System.out.print("Too low! " + insults[(int) (0 + 5 * Math.random())] + "\n");
             else if (input > number)
             	System.out.print("Too high! " + insults[(int) (0 + 5 * Math.random())] + "\n");
