@@ -27,8 +27,9 @@ class main {
         switch(answer) {
             case 'Y':
             case 'y':
-                    guess(scanner);
-                    break;
+                    return 1;
+                    //guess(scanner);
+                    //break;
             case 'n':
             case 'N':
                     return 0;
