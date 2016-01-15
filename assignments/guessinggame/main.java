@@ -24,12 +24,18 @@ class main {
         scanner.nextLine();
         System.out.print("Would you like to play again (y/n)?: ");
         char answer = scanner.next().charAt(0); 
-        if (answer == 'y' || answer == 'Y')
-            guess(scanner);
-        if (answer == 'n' || answer == 'N')
-            return 0;
-        System.out.print("Not sure what you mean, please answer yes or no.\n");
-        response(scanner);
+        switch(answer) {
+            case 'Y':
+            case 'y':
+                    guess(scanner);
+                    break;
+            case 'n':
+            case 'N':
+                    return 0;
+            default:
+                System.out.print("Not sure what you mean, please answer yes or no.\n");
+                response(scanner);
+        }
         return -1;
     }
 
