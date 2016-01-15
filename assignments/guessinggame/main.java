@@ -8,18 +8,20 @@ class main {
         "I bet you use IE.",
         "You probably use nano instead of vi.",
         "echo your_life_story.txt > /dev/null.",
-        "These insults are about as lame as I was on prom night. Oh, we're supposed to insult the user.",
+        "These insults are about as lame as I was on prom night.\n" +
+        "Oh, we're supposed to insult the user.",
         "signal 11: segmentation fault (what are you thinking?).",
         "Might as well call you Deacon Blues... no? No one got that one?"
     };
     
-    /* Scanner instance used for user input */
+    /* scanner instance used for user input */
     static Scanner stdin = new Scanner(System.in);
 
     /* ask user if they wish to play again or quit, then return to guess() or main() accordingly.
      * @param scanner global scanner used for user input
      * @return        return 0 to go to main */ 
     private static int response(Scanner scanner) {
+        scanner.nextLine();
         System.out.print("Would you like to play again (y/n)?: ");
         char answer = scanner.next().charAt(0); 
         if (answer == 'y' || answer == 'Y')
@@ -33,12 +35,12 @@ class main {
 
     /* receive/check input, then ask the user if they want to play again and call response() 
      * @param scanner global scanner used for user input
-     * @return        0 to go to main */
+     * @return        return 0 to go to main */
     private static int guess(Scanner scanner) {
         /* cast as int due to Math.random() returning double */
         int number = (int) (1 + 100 * Math.random());
         int input = 0;
-    	for (int i = 1; ; i++) {
+    	for (int i = 1; ;i++) {
 			System.out.print("What is your guess?: ");
 		    while (!scanner.hasNextInt()) {
 		    	System.out.print("Please enter a number from 1 to 100.\n");
