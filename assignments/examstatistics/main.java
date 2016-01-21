@@ -35,7 +35,7 @@ class main {
                 System.out.print("File not found.\n");
             }
             finally {
-                input.close();
+                //input.close();
                 break;
             }
         } while (true);

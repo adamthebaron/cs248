@@ -9,18 +9,18 @@ public class Grades {
 	public String filename;
 	
 	/** grade constants for comparison */
-	const int A = 90;
-	const int B = 80;
-	const int C = 70;
-	const int D = 60;
-	const int F = 59;
+	public static final int A = 90;
+	public static final int B = 80;
+	public static final int C = 70;
+	public static final int D = 60;
+	public static final int F = 59;
 
 	/** 
 		get median score
 		@return median median score value 
 	*/
-    public int getMedian() {
-		Array.sort(num);
+    public int getMed() {
+		Arrays.sort(num);
 		int median = (num.length % 2);
 		return median;
     }
@@ -29,11 +29,11 @@ public class Grades {
 		get average score
 		@return average average score value
 	*/
-    public int getAvg() {
-		float average = null;
-		float total_score = null;
+    public float getAvg() {
+		float average = 0;
+		float total_score = 0;
 		for (int i = 0; i <= num.length; i++) {
-			if (num[i + 1] != null)
+			if (i + 1 < num.length)
 				total_score = num[i] + num[i + 1];
 			else
 				total_score += num[i];
@@ -43,28 +43,29 @@ public class Grades {
     }
 
     public int getMin() {
-		Array.sort(num);
+		Arrays.sort(num);
 		return num[0];
     }
 
     public int getMax() {
-		Array.sort(num);
+		Arrays.sort(num);
 		return num[num.length];
     }
 	
-	public int sortLetter() {
+	public void sortLetter() {
 		/* int[0] = A grades, int[1] = B grades, etc. */
-		int[4] gradeArr = null;
+		int[] gradeArr = { 0, 0, 0, 0 };
 		for (int i = 0; i <= num.length; i++) {
 			if (num[i] >= 90)
-				int[0] += 1;
+				gradeArr[0] += 1;
 			else if (num[i] >= 80 && num[i] < 90)
-				int[1] += 1;
+				gradeArr[1] += 1;
 			else if (num[i] >= 70 && num[i] < 80)
-				int[2] += 1;
+				gradeArr[2] += 1;
 			else if (num[i] >= 60 && num[i] < 70)
-				int[3] += 1;
+				gradeArr[3] += 1;
 			else
+				gradeArr[4] += 1;
 		}
 	}
 }
