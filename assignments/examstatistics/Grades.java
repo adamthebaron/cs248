@@ -3,21 +3,21 @@ import java.util.*;
 
 class Grades {
 
-    int[] num;
+    public int[] num;
 
-    int getMedian(String filename) {
-
-    }
-
-    int getAvg(String filename) {
+    public int getMedian(String filename) {
 
     }
 
-    int getMin(String filename) {
+    public int getAvg(String filename) {
 
     }
 
-    int getMax(String filename) {
+    public int getMin(String filename) {
+
+    }
+
+    public int getMax(String filename) {
 
     }
 }
