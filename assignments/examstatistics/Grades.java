@@ -9,11 +9,11 @@ public class Grades {
 	public String filename;
 	
 	/** grade constants for comparison */
-	public static final int A = 90;
-	public static final int B = 80;
-	public static final int C = 70;
-	public static final int D = 60;
-	public static final int F = 59;
+	public final int A = 90;
+	public final int B = 80;
+	public final int C = 70;
+	public final int D = 60;
+	public final int F = 59;
 
 	/** 
 		get median score
@@ -68,4 +68,27 @@ public class Grades {
 				gradeArr[4] += 1;
 		}
 	}
+
+    public int getGrades(String filename) {
+        String nextline = null;
+		Scanner input;
+        do {
+            try {
+                input = new Scanner(new FileReader(filename));
+                int i = 0;
+                while ((nextline = input.nextLine()) != null) {
+                	num[i] = Integer.parseInt(nextline);
+                    i += 1;
+                }
+            }
+            catch (FileNotFoundException ex) {
+                System.out.print("File not found.\n");
+            }
+            finally {
+                //input.close();
+                break;
+            }
+        } while (true);
+		return 0;
+    }
 }
