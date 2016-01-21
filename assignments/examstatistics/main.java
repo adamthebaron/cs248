@@ -2,14 +2,12 @@ import java.io.*;
 import java.util.*;
 
 class main {
-    FileReader fr = null;
-    FileWriter output = null;
-    Scanner input = null;
+	/** Grades object used to store and parse grade scores */
     Grades grades = new Grades();
 
     public void main(String[] argv) 
     throws IOException {
-        input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.print("Please enter grade data: ");
         String filename = input.nextLine();
         input.close();
@@ -23,6 +21,7 @@ class main {
 
     private int getGrades(String filename) {
         String nextline = null;
+		Scanner input;
         do {
             try {
                 input = new Scanner(new FileReader(filename));
@@ -33,12 +32,13 @@ class main {
                 }
             }
             catch (FileNotFoundException ex) {
-                System.out.print("File not Found.\n");
+                System.out.print("File not found.\n");
             }
             finally {
                 input.close();
                 break;
             }
         } while (true);
+		return 0;
     }
 }
