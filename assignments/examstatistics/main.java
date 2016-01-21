@@ -5,7 +5,7 @@ class main {
     FileReader fr = null;
     FileWriter output = null;
     Scanner input = null;
-    Grades grades = null;
+    Grades grades = new Grades();
 
     public void main(String[] argv) 
     throws IOException {
