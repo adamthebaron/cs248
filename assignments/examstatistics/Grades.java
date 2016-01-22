@@ -2,8 +2,9 @@ import java.io.*;
 import java.util.*;
 
 public class Grades {
+
 	/* array to hold scores and grade constants */
-    public int[] num;
+    public int[] num = new int[100];
 	
 	/** file containing grade scores */
 	public String filename;
@@ -68,27 +69,4 @@ public class Grades {
 				gradeArr[4] += 1;
 		}
 	}
-
-    public int getGrades(String filename) {
-        String nextline = null;
-		Scanner input;
-        do {
-            try {
-                input = new Scanner(new FileReader(filename));
-                int i = 0;
-                while ((nextline = input.nextLine()) != null) {
-                	num[i] = Integer.parseInt(nextline);
-                    i += 1;
-                }
-            }
-            catch (FileNotFoundException ex) {
-                System.out.print("File not found.\n");
-            }
-            finally {
-                //input.close();
-                break;
-            }
-        } while (true);
-		return 0;
-    }
 }
