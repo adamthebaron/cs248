@@ -1,8 +1,11 @@
+/** @author Adam Kessler */
 import java.io.*;
 import java.util.*;
 
 class main {
-
+    
+    /** main function; init objects and print statistics
+     *  @param argv arguments passed to program */
     public static void main(String[] argv) 
     throws IOException {
 		Scanner reader = new Scanner(System.in);
@@ -27,6 +30,9 @@ class main {
 		System.out.print("There are " + grades.num.length + " grades\n");
 	}
 
+    /** get grades from file and put inside grade's object
+     *  @param input Scanner object that links to file containing scores
+     *  @param grades Grades object that will contain info on grades */
 	public static void getGrades(Scanner input, Grades grades)
 	throws FileNotFoundException {
 		for (int i = 0; i < grades.num.length; i++) {
