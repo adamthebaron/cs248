@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 class main {
-	/** Grades object used to store and parse grade scores */
-    Grades grades = new Grades();
+	/* Grades object used to store and parse grade scores */
+    static Grades grades = new Grades();
 
     public static void main(String[] argv) 
     throws IOException {
