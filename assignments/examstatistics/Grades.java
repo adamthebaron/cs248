@@ -3,8 +3,13 @@ import java.util.*;
 
 public class Grades {
 
+	public int[] num;
+	public Grades(int size) {
+		num = new int[size];
+	}
+
 	/* array to hold scores and grade constants */
-    public int[] num = new int[100];
+    //public int[] num = new int[lines];
 	
 	/** file containing grade scores */
 	public String filename;
