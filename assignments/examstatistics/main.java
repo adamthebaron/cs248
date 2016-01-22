@@ -23,6 +23,7 @@ class main {
 						 "C: " + gradeArr[2] + "\n" +
 						 "D: " + gradeArr[3] + "\n" +
 						 "F: " + gradeArr[4] + "\n");
+		System.out.print("There are " + grades.num.length + " grades\n");
 	}
 
 	public static void getGrades(Scanner input, Grades grades)
