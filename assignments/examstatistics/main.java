@@ -13,6 +13,9 @@ class main {
 		int n = Integer.parseInt(input.nextLine());
 		Grades grades = new Grades(n);
 		getGrades(input, grades);
+		System.out.print("Minimum score: " + grades.getMin() + "\n" +
+						 "Maximum score: " + grades.getMax() + "\n" +
+						 "Average score: " + grades.getAvg() + "\n");
 	}
 
 	public static void getGrades(Scanner input, Grades grades)
@@ -20,6 +23,5 @@ class main {
 		for (int i = 0; i < grades.num.length; i++) {
 			grades.num[i] = Integer.parseInt(input.nextLine());
 		}
-		System.out.print(Arrays.toString(grades.num));
 	}
 }

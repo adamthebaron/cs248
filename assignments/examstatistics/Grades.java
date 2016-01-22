@@ -38,13 +38,9 @@ public class Grades {
     public float getAvg() {
 		float average = 0;
 		float total_score = 0;
-		for (int i = 0; i <= num.length; i++) {
-			if (i + 1 < num.length)
-				total_score = num[i] + num[i + 1];
-			else
-				total_score += num[i];
-			average = total_score / num.length;
-		}
+		for (int i : num)
+			total_score += i;
+		average = total_score / num.length;
 		return average;
     }
 
@@ -55,7 +51,7 @@ public class Grades {
 
     public int getMax() {
 		Arrays.sort(num);
-		return num[num.length];
+		return num[num.length - 1];
     }
 	
 	public void sortLetter() {
