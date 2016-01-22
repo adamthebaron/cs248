@@ -27,8 +27,7 @@ public class Grades {
 	*/
     public int getMed() {
 		Arrays.sort(num);
-		int median = (num.length % 2);
-		return median;
+		return num[num.length / 2];
     }
 	
 	/** 

@@ -16,7 +16,8 @@ class main {
 		int[] gradeArr = grades.sortLetter();
 		System.out.print("Minimum score: " + grades.getMin() + "\n" +
 						 "Maximum score: " + grades.getMax() + "\n" +
-						 "Average score: " + grades.getAvg() + "\n");
+						 "Average score: " + grades.getAvg() + "\n" +
+						 "Median score:  " + grades.getMed() + "\n");
 		System.out.print("Number of scores by letter grade:\n" +
 						 "A: " + gradeArr[0] + "\n" +
 						 "B: " + gradeArr[1] + "\n" +
