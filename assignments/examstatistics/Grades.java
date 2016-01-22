@@ -54,10 +54,10 @@ public class Grades {
 		return num[num.length - 1];
     }
 	
-	public void sortLetter() {
+	public int[] sortLetter() {
 		/* int[0] = A grades, int[1] = B grades, etc. */
-		int[] gradeArr = { 0, 0, 0, 0 };
-		for (int i = 0; i <= num.length; i++) {
+		int[] gradeArr = { 0, 0, 0, 0, 0 };
+		for (int i = 0; i <= (num.length - 1); i++) {
 			if (num[i] >= 90)
 				gradeArr[0] += 1;
 			else if (num[i] >= 80 && num[i] < 90)
@@ -69,5 +69,6 @@ public class Grades {
 			else
 				gradeArr[4] += 1;
 		}
+		return gradeArr;
 	}
 }
