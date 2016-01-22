@@ -25,8 +25,11 @@ public class Grades {
 	/** get median score
 		@return median median score value */
     public int getMed() {
-		Arrays.sort(num);
-		return num[num.length / 2];
+ 	    Arrays.sort(num);
+        if (num.length % 2 == 0)
+		    return num[num.length / 2] + num[num.length / (2 - 1)] / 2;
+        else
+            return num[num.length / 2];
     }
 	
 	/** get average score
