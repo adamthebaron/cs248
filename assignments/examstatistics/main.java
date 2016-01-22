@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 
 class main {
-    
+
     /** main function; init objects and print statistics
      *  @param argv arguments passed to program */
     public static void main(String[] argv) 
