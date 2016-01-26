@@ -10,9 +10,11 @@ The cycle is as follows:
  4. Possibly store answer
 The CPU does this billions of times a second (more or less too 
 quickly to comprehend, but it makes sense)
+
 ##Pipelining
 Pipelining is a technology that allows the CPU to work on multiple
 instructions at any given time (Each instruction per step).
+
 ##Instruction
 In general, every single instruction has two components, the opcode
 and the operand:
