@@ -72,7 +72,7 @@ public class MyDate implements DateInterface {
     }
     
     public void tomorrow() {
-     
+    
     }
     
     public String toString() {
