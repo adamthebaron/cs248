@@ -76,7 +76,19 @@ public class MyDate implements DateInterface {
         /* dealing with a leap year */
             monthLength[1] = 29;
         else
-            monthlength[1] = 28;
+            monthLength[1] = 28;
+            
+        if(curDay == monthLength[curMonth - 1]) {
+            curMonth++;
+            curDay = 1;
+        }
+        
+        if(curMonth == 12) {
+           curYear++;
+           curMonth = 1;
+        }
+        
+        curDay++;
     }
     
     public String toString() {
