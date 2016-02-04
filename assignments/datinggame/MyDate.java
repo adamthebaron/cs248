@@ -14,6 +14,10 @@ public class MyDate implements DateInterface {
     public int curYear;
     
     int[] months = {
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
+    };
+    
+    int[] monthLength = {
         31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
     };
     
@@ -61,14 +65,21 @@ public class MyDate implements DateInterface {
     public int getYear() { return curYear; }
     
     public void set(int m, int d, int y, int dow) {
-        curMonth = month[m];
+        curMonth = months[m];
         curDay = days[d];
         curYear = y;
         curDow = dayofweek[dow];
     }
     
     public void tomorrow() {
-        
+        if (curDow < 6)
+            curDow++;
+        else
+            curDow = 0;
+        if (curMonth < 12)
+           curMonth++;
+        else
+           curMonth = 1;
     }
     
     public String toString() {
