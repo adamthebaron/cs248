@@ -25,8 +25,8 @@ public interface DateInterface
 
   /** sets the date to today;
       make this empty {} unless you do the extra credit. */
-  public void today();
+  //public void today();
   /** Moves the date backword by exactly one day;
       make this empty {} unless you do the extra credit. */
-  public void yesterday();
+  //public void yesterday();
 }

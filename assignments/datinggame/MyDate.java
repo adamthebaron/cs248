@@ -65,25 +65,14 @@ public class MyDate implements DateInterface {
     public int getYear() { return curYear; }
     
     public void set(int m, int d, int y, int dow) {
-        curMonth = months[m];
-        curDay = days[d];
+        curMonth = months[m - 1];
+        curDay = days[d - 1];
         curYear = y;
         curDow = dayofweek[dow];
     }
     
     public void tomorrow() {
-        if (curDow < 6)
-            curDow++;
-        else
-            curDow = 0;
-        if (curMonth < 12)
-           curMonth++;
-        else
-           curMonth = 1;
-        if (curDay < monthLength[curMonth - 1].length)
-           curDay++;
-        else
-           curDay = 0;
+     
     }
     
     public String toString() {
