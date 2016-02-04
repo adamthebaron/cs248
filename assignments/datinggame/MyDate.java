@@ -7,6 +7,12 @@ import java.io.*;
 import java.util.*;
 
 public class MyDate implements DateInterface {
+    
+    public int curMonth;
+    public int curDay;
+    public int curDow;
+    public int curYear;
+    
     int[] months = {
         31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
     };
@@ -26,7 +32,7 @@ public class MyDate implements DateInterface {
         "December"
     };
     
-    int[] dow = {
+    int[] dayofweek = {
         0, 1, 2, 3, 4, 5, 6
     };
     
@@ -46,24 +52,19 @@ public class MyDate implements DateInterface {
         "Saturday"
     };
     
-    public int getDay() {
-        
-    }
+    public int getDay() { return curDay; }
     
-    public int getDow() {
-        
-    }
+    public int getDow() { return curDow; }
     
-    public int getMonth() {
-        
-    }
+    public int getMonth() { return curMonth; }
     
-    public int getYear() {
-        
-    }
+    public int getYear() { return curYear; }
     
     public void set(int m, int d, int y, int dow) {
-        
+        curMonth = month[m];
+        curDay = days[d];
+        curYear = y;
+        curDow = dayofweek[dow];
     }
     
     public void tomorrow() {
@@ -71,6 +72,8 @@ public class MyDate implements DateInterface {
     }
     
     public String toString() {
-        
+        return dayofweek[curDow] + " " +
+               month[curMonth - 1] + " " +
+               curDay + ", " + curYear;
     }
 }

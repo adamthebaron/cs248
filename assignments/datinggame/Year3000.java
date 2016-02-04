@@ -6,11 +6,12 @@ import java.io.*;
 */
 public class Year3000
 {
-  public static void main(String [] args) throws IOException
+  public static void main(String [] args) 
+  throws IOException
   {
     DateInterface d = new MyDate();
-    d.set(1,25,2015,0);  // sets the date to Sunday, January 25th, 2015
-    while(d.getYear()<3000)
+    d.set(1, 25, 2015, 0);  // sets the date to Sunday, January 25th, 2015
+    while(d.getYear() < 3000)
     {
       d.tomorrow();
       // un-comment the next line to help with debugging
