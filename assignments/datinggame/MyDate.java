@@ -72,8 +72,8 @@ public class MyDate implements DateInterface {
     }
     
     public String toString() {
-        return dayofweek[curDow] + " " +
-               month[curMonth - 1] + " " +
+        return dayNames[curDow] + " " +
+               monthNames[curMonth - 1] + " " +
                curDay + ", " + curYear;
     }
 }
