@@ -11,7 +11,7 @@ In general, there are two types of inheritance
    the same methods (functions)
  - Interfaces can be used as function arguments
 
-#Example
+##Example
 ```java
 public interface Comparable {
     /** @param x the object to compare
@@ -25,3 +25,52 @@ of the function signature. The interface contains no mutable data
 or function definitions.
 ```java
 public class Class 
+```
+
+#"Extends" keyword
+- Used to create new class with specific variables/methods from exisiting
+class. Only the differences from the parent class need to be defined.
+
+- An object of a derived class can still act as an object of the parent
+class.
+
+##Example
+```java
+class ParentClass {
+    String stuff;
+    String otherStuff;
+    String stillGotSomeStuff;
+
+    public ParentClass(String s, String o, String s2) {
+        stuff = s;
+        otherStuff = o;
+        stillGotSomeStuff = s2;
+    }
+
+    public String getStuff() {
+        return stuff;
+    }
+
+    public String getOtherStuff() {
+        return otherStuff;
+    }
+}
+
+class ChildClass extends ParentClass {
+    /* Everything from ParentClass is already here */
+    int numberOfThings;
+
+    public ChildClass(String s, String o, String s2, int n) {
+        stuff = s;
+        otherStuff = o;
+        stillGotSomeStuff = s2;
+        numberOfThings = n;
+    }
+
+    public int getNumberOfThings() {
+        return numberOfThings;
+    }
+}
+```
+The 'super' keyword will hold data relative to the method it is used
+in. It can be used to return data or access data from the parent class.
