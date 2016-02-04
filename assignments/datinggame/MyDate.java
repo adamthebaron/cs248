@@ -80,6 +80,10 @@ public class MyDate implements DateInterface {
            curMonth++;
         else
            curMonth = 1;
+        if (curDay < monthLength[curMonth - 1].length)
+           curDay++;
+        else
+           curDay = 0;
     }
     
     public String toString() {
