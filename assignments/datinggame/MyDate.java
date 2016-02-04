@@ -72,7 +72,11 @@ public class MyDate implements DateInterface {
     }
     
     public void tomorrow() {
-    
+        if(curMonth == 2 && (curYear % 400 == 0))
+        /* dealing with a leap year */
+            monthLength[1] = 29;
+        else
+            monthlength[1] = 28;
     }
     
     public String toString() {
