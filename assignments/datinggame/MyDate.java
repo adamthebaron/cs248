@@ -56,23 +56,23 @@ public class MyDate implements DateInterface {
         "Saturday"
     };
     
-	/** @return curDay current day */
+    /** @return curDay current day */
     public int getDay() { return curDay; }
     
-	/** @return curDow current day of the week */
+    /** @return curDow current day of the week */
     public int getDow() { return curDow; }
     
-	/** @return curMonth current month */
+    /** @return curMonth current month */
     public int getMonth() { return curMonth; }
     
-	/** @return curYear current year */
+    /** @return curYear current year */
     public int getYear() { return curYear; }
     
-	/** sets initial date
-		@param m initial month
-		@param d initial day
-		@param y initial year
-		@param dow initial day of the week */
+    /** sets initial date
+	@param m initial month
+	@param d initial day
+	@param y initial year
+	@param dow initial day of the week */
     public void set(int m, int d, int y, int dow) {
         curMonth = months[m - 1];
         curDay = days[d - 1];
@@ -80,12 +80,12 @@ public class MyDate implements DateInterface {
         curDow = dayofweek[dow];
     }
     
-	/* increase date by one day */
+    /* increase date by one day */
     public void tomorrow() {
-		if((curYear % 400 == 0) || ((curYear % 4 == 0) && (curYear % 100 != 0)))
-			monthLength[1] = 29;
-		else
-			monthLength[1] = 28;
+	if((curYear % 400 == 0) || ((curYear % 4 == 0) && (curYear % 100 != 0)))
+		monthLength[1] = 29;
+	else
+		monthLength[1] = 28;
             
         if(curDay >= monthLength[curMonth - 1]) {
             curDay = 0;
@@ -97,18 +97,18 @@ public class MyDate implements DateInterface {
             curMonth = 1;
         }
 
-		if(curDow >= 6)
-			curDow = -1;
+	if(curDow >= 6)
+		curDow = -1;
         
         curDay++;
         curDow++;
     }
     
-	/** @return string date in readable format */
+    /** @return string date in readable format */
     public String toString() {
-		String string = dayNames[curDow] + " " +
-               monthNames[curMonth - 1] + " " +
-               curDay + ", " + curYear;
+	String string = dayNames[curDow] + " " +
+        monthNames[curMonth - 1] + " " +
+        curDay + ", " + curYear;
         return string; 
     }
 }
