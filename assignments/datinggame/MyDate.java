@@ -56,14 +56,23 @@ public class MyDate implements DateInterface {
         "Saturday"
     };
     
+	/** @return curDay current day */
     public int getDay() { return curDay; }
     
+	/** @return curDow current day of the week */
     public int getDow() { return curDow; }
     
+	/** @return curMonth current month */
     public int getMonth() { return curMonth; }
     
+	/** @return curYear current year */
     public int getYear() { return curYear; }
     
+	/** sets initial date
+		@param m initial month
+		@param d initial day
+		@param y initial year
+		@param dow initial day of the week */
     public void set(int m, int d, int y, int dow) {
         curMonth = months[m - 1];
         curDay = days[d - 1];
@@ -71,6 +80,7 @@ public class MyDate implements DateInterface {
         curDow = dayofweek[dow];
     }
     
+	/* increase date by one day */
     public void tomorrow() {
 		if((curYear % 400 == 0) || ((curYear % 4 == 0) && (curYear % 100 != 0)))
 			monthLength[1] = 29;
@@ -94,6 +104,7 @@ public class MyDate implements DateInterface {
         curDow++;
     }
     
+	/** @return string date in readable format */
     public String toString() {
         return dayNames[curDow] + " " +
                monthNames[curMonth - 1] + " " +
