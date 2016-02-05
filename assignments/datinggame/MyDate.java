@@ -7,20 +7,23 @@ import java.io.*;
 import java.util.*;
 
 public class MyDate implements DateInterface {
-    
+    /* current month, day, day of week, and year */
     public int curMonth;
     public int curDay;
     public int curDow;
     public int curYear;
     
+    /* months as an integer */
     int[] months = {
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
     };
     
+    /* length of month */
     int[] monthLength = {
         31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
     };
     
+    /* months as strings */
     String[] monthNames = {
         "January",
         "February",
@@ -36,16 +39,19 @@ public class MyDate implements DateInterface {
         "December"
     };
     
+    /* day of week as integer */
     int[] dayofweek = {
         0, 1, 2, 3, 4, 5, 6
     };
     
+    /* total possible days in a month */
     int[] days = {
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
         16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
         29, 30, 31
     };
     
+    /* days as strings */
     String[] dayNames = {
         "Sunday",
         "Monday",
