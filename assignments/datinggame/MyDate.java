@@ -72,10 +72,10 @@ public class MyDate implements DateInterface {
     }
     
     public void tomorrow() {
-        if(curYear % 400 == 0)
+        if(curYear % 100 == 0 && curYear % 400 == 0 && curYear % 4 == 0)
         /* dealing with a leap year */
             monthLength[1] = 29;
-        else if (curYear % 4 == 0 && curYear % 100 != 0)
+        if (curYear % 4 == 0 && curYear % 100 != 0)
             monthLength[1] = 29;
         else
             monthLength[1] = 28;

@@ -14,7 +14,7 @@ public class Year3000
         while(d.getYear() < 3000)
         {
             d.tomorrow();
-            //System.out.println(d);
+            System.out.println(d);
         }
         // at this point, d represents January 1, 3000
         System.out.println(d);
