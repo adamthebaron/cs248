@@ -85,7 +85,7 @@ public class MyDate implements DateInterface {
             curMonth += 1;
         }
         
-        if(curMonth >= 12) {
+        if(curMonth >= 13) {
             curYear += 1;
             curMonth = 1;
         }
