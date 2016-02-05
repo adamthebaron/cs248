@@ -75,6 +75,8 @@ public class MyDate implements DateInterface {
         if(curYear % 400 == 0)
         /* dealing with a leap year */
             monthLength[1] = 29;
+        else if (curYear % 4 == 0 && curYear % 100 != 0)
+            monthLength[1] = 29;
         else
             monthLength[1] = 28;
             
@@ -89,7 +91,7 @@ public class MyDate implements DateInterface {
         }
 
 		if(curDow >= 6)
-			curDow = 0;
+			curDow = 1;
         
         curDay++;
         curDow++;
