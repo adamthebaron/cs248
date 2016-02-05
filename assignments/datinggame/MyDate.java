@@ -82,16 +82,16 @@ public class MyDate implements DateInterface {
             
         if(curDay >= monthLength[curMonth - 1]) {
             curDay = 0;
-            curMonth++;
+            curMonth += 1;
         }
         
         if(curMonth >= 12) {
-            curYear++;
+            curYear += 1;
             curMonth = 1;
         }
 
 		if(curDow >= 6)
-			curDow = 1;
+			curDow = -1;
         
         curDay++;
         curDow++;
