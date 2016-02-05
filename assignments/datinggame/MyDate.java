@@ -106,8 +106,9 @@ public class MyDate implements DateInterface {
     
 	/** @return string date in readable format */
     public String toString() {
-        return dayNames[curDow] + " " +
+		String string = dayNames[curDow] + " " +
                monthNames[curMonth - 1] + " " +
                curDay + ", " + curYear;
+        return string; 
     }
 }
