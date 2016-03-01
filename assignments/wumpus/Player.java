@@ -6,6 +6,7 @@ import java.util.*;
 class Player {
 
     int arrows = 3;
+    int currentRoom = 1;
 
 	int shoot() {
 		if(arrows != 0)
@@ -15,7 +16,11 @@ class Player {
         return 0;
 	}
 
-//	int move() {
-
-//	}
+	int move(int room) {
+        if (room == currentRoom) {
+            System.out.println("You are already here!");
+            return 1;
+        }
+        
+	}
 }
