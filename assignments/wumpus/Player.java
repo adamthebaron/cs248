@@ -22,5 +22,6 @@ class Player {
             return 1;
         }
         
+        return 0; 
 	}
 }

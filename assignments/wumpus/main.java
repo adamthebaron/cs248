@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 class main {
-	public static int main() throws IOException {
+	public static void main(String[] args) throws IOException {
 	    int totalRooms = 0;
 		String line = null;
         String[] adjRooms = null;
@@ -59,6 +59,5 @@ class main {
                 break;
             }
         }
-        return 0;
 	}
 }
