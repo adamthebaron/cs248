@@ -4,19 +4,19 @@ import java.io.*;
 import java.util.*;
 
 class main {
-	public static int main(void) {
+	public static int main() {
 	    int totalRooms = 0;
 		String line = null;
         String[] adjRooms = null;
         int i = 0;
-        char input = null;
+        char input;
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
 		BufferedReader read = new BufferedReader(new FileReader("roomlayout.txt"));
-		totalrooms = read.readLine();
-		Room[] rooms = new Room(totalrooms - 1);
+		totalRooms = Integer.parseInt(read.readLine());
+		Room[] rooms = new Room[totalRooms - 1];
 		/* start on line 2 */
-        while ((line = read.readLine()) != null && i <= (totalrooms - 1)) {
+        while ((line = read.readLine()) != null && i <= (totalRooms - 1)) {
 			/* first line assigns adjacent rooms */
             adjRooms = line.split(" ");
             for (int j = 0; j < adjRooms.length; j++)
@@ -27,9 +27,10 @@ class main {
 		}
         for (;;) {
             System.out.println("You are in room " + player.currentRoom);
-            System.out.println(room[player.currentRoom - 1].description);
+            System.out.println(rooms[player.currentRoom - 1].description);
             System.out.println("You have " + player.arrows + " arrows left.");
-            System.out.println("There are tunnels to rooms " + rooms.adjacentRooms + ".");
+            System.out.println("There are tunnels to rooms " + 
+                                Arrays.toString(rooms.adjacentRooms) + ".");
             System.out.print("What will you do? (S to Shoot, M to Move): ");
             input = scanner.next().charAt(0);
             /* handle shoot option */
@@ -52,6 +53,12 @@ class main {
                 else
                     player.move(input);
             }
+            /* handle unknown input */
+            else {
+                System.out.println("Unknown option.");
+                break;
+            }
         }
+        return 0;
 	}
 }
