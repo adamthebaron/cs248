@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 class main {
-	public static int main() {
+	public static int main() throws IOException {
 	    int totalRooms = 0;
 		String line = null;
         String[] adjRooms = null;
@@ -30,7 +30,7 @@ class main {
             System.out.println(rooms[player.currentRoom - 1].description);
             System.out.println("You have " + player.arrows + " arrows left.");
             System.out.println("There are tunnels to rooms " + 
-                                rooms.adjacentRooms.toString() + ".");
+                                rooms[player.currentRoom].adjacentRooms.toString() + ".");
             System.out.print("What will you do? (S to Shoot, M to Move): ");
             input = scanner.next().charAt(0);
             /* handle shoot option */
