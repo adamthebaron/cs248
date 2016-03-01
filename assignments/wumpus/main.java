@@ -30,11 +30,11 @@ class main {
             System.out.println(rooms[player.currentRoom - 1].description);
             System.out.println("You have " + player.arrows + " arrows left.");
             System.out.println("There are tunnels to rooms " + 
-                                Arrays.toString(rooms.adjacentRooms) + ".");
+                                rooms.adjacentRooms.toString() + ".");
             System.out.print("What will you do? (S to Shoot, M to Move): ");
             input = scanner.next().charAt(0);
             /* handle shoot option */
-            if (input.equals("S") || input.equals("s")) {
+            if (input == 'S' || input == 's') {
                 System.out.print("Which room?: ");
                 input = scanner.next().charAt(0);
                 if (player.shoot() == 1) {
@@ -45,7 +45,7 @@ class main {
 
             }
             /* handle move option */
-            if (input.equals("M") || input.equals("m")) {
+            if (input == 'M' || input == 'm') {
                 System.out.print("Which room?: ");
                 input = scanner.next().charAt(0);
                 if(player.move(input) == 1)
