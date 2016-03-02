@@ -18,10 +18,10 @@ class Player {
 
 	int move(int room) {
         if (room == currentRoom) {
-            System.out.println("You are already here!");
             return 1;
         }
-        
+
+        currentRoom = room;
         return 0; 
 	}
 }
