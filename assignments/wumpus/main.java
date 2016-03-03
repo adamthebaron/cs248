@@ -10,6 +10,9 @@ class main {
         String[] adjRooms = null;
         char charput;
         int intput;
+        int wumpus;
+        int[] spiders = new int[2];
+        int[] pits = new int[2];
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         Scanner scan = new Scanner(new FileReader("roomlayout.txt"));
@@ -20,6 +23,7 @@ class main {
         }
 
         for (;;) {
+            /* print current info */
             System.out.println("You are in room " + player.currentRoom);
             System.out.println(rooms[player.currentRoom - 1].description);
             System.out.println("There are tunnels to rooms " + rooms[player.currentRoom - 1].adjroom1
