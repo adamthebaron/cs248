@@ -22,9 +22,9 @@ class main {
         for (;;) {
             System.out.println("You are in room " + player.currentRoom);
             System.out.println(rooms[player.currentRoom - 1].description);
-            System.out.println("There are tunnels to rooms " + rooms[player.currentRoom].adjroom1
-                                + ", " + rooms[player.currentRoom].adjroom2 + ", and " 
-                                + rooms[player.currentRoom].adjroom3 + ".");
+            System.out.println("There are tunnels to rooms " + rooms[player.currentRoom - 1].adjroom1
+                                + ", " + rooms[player.currentRoom - 1].adjroom2 + ", and " 
+                                + rooms[player.currentRoom - 1].adjroom3 + ".");
             System.out.println("You have " + player.arrows + " arrows left.");
             System.out.print("What will you do? (S to Shoot, M to Move): ");
             charput = scanner.next().charAt(0);
