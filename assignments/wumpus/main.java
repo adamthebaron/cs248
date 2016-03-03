@@ -8,7 +8,8 @@ class main {
         int totalRooms = 0;
 		String line = null;
         String[] adjRooms = null;
-        char input;
+        char charput;
+        int intput;
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         Scanner scan = new Scanner(new FileReader("roomlayout.txt"));
@@ -26,32 +27,29 @@ class main {
                                 + rooms[player.currentRoom].adjroom3 + ".");
             System.out.println("You have " + player.arrows + " arrows left.");
             System.out.print("What will you do? (S to Shoot, M to Move): ");
-            input = scanner.next().charAt(0);
+            charput = scanner.next().charAt(0);
             
             /* handle shoot option */
-            if (input == 'S' || input == 's') {
+            if (charput == 'S' || charput == 's') {
                 System.out.print("Which room?: ");
-                input = scanner.next().charAt(0);
+                charput = scanner.next().charAt(0);
                 
                 if (player.shoot() == 1) {
                     System.out.println("You are out of arrows!");
                     break;
                 }
                 
-                System.out.println("You shoot into room " + input);
+                System.out.println("You shoot into room " + charput);
             }
             
             /* handle move option */
-            else if (input == 'M' || input == 'm') {
+            else if (charput == 'M' || charput == 'm') {
                 System.out.print("Which room?: ");
-                input = scanner.next().charAt(0);
-                
-                if(player.move(input) == 1)
-                    System.out.println("You are already in this room");
-                
+                intput  = scanner.nextInt();
+                player.move(intput, rooms[player.currentRoom]);
             }
             
-            /* handle unknown input */
+            /* handle unknown charput */
             else
                 System.out.println("Unknown option.");
         }
