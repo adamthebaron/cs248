@@ -27,14 +27,22 @@ class Player {
         return 0;
 	}
 
-	void move(int room, Room roomObj) {
-		System.out.println(roomObj.adjroom1);
-		System.out.println(roomObj.adjroom2);
-		System.out.println(roomObj.adjroom3);
+	void move(int room, int wumpus, int[] spiders, Room roomObj) {
     	if (room == roomObj.adjroom1 ||
             room == roomObj.adjroom2 ||
             room == roomObj.adjroom3)
 			currentRoom = room;
+        if (wumpus == roomObj.adjroom1 ||
+            wumpus == roomObj.adjroom2 ||
+            wumpus == roomObj.adjroom3)
+            System.out.println("You smell a wumpus nearby.");
+        if (spiders[0] == roomObj.adjroom1 ||
+            spiders[0] == roomObj.adjroom2 ||
+            spiders[0] == roomObj.adjroom3 ||
+            spiders[1] == roomObj.adjroom1 ||
+            spiders[1] == roomObj.adjroom2 ||
+            spiders[1] == roomObj.adjroom3)
+            System.out.println("You hear a spider nearby.");
 		else
 			System.out.println("You cannot go there from here.");
 	}

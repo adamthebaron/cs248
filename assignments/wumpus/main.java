@@ -28,7 +28,6 @@ class main {
         spiders[1] = wsp.get(2);
         pits[0] = wsp.get(3);
         pits[1] = wsp.get(4);
-        System.out.println(wumpus);
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         Scanner scan = new Scanner(new FileReader("roomlayout.txt"));
@@ -37,8 +36,9 @@ class main {
         for (i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(scan);
         }
-
+        System.out.println(wumpus);
         for (;;) {
+            System.out.println("");
             /* print current info */
             System.out.println("You are in room " + player.currentRoom);
             System.out.println(rooms[player.currentRoom - 1].description);
@@ -68,12 +68,13 @@ class main {
             else if (charput == 'M' || charput == 'm') {
                 System.out.print("Which room?: ");
                 intput  = scanner.nextInt();
-                player.move(intput, rooms[player.currentRoom - 1]);
+                player.move(intput, wumpus, spiders, rooms[player.currentRoom - 1]);
             }
             
             /* handle unknown charput */
             else
                 System.out.println("Unknown option.");
+        
         }
 
 		System.out.println("You win!");
