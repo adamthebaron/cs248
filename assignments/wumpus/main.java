@@ -12,7 +12,7 @@ class main {
         int intput;
         int wumpus;
         int[] spiders = new int[2];
-        int[] pits = new int[2];
+       	int[] pits = new int[2];
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         Scanner scan = new Scanner(new FileReader("roomlayout.txt"));
@@ -37,9 +37,11 @@ class main {
             if (charput == 'S' || charput == 's') {
                 System.out.print("Which room?: ");
                 charput = scanner.next().charAt(0);
-                
-                if (player.shoot() == 1) {
-                    System.out.println("You are out of arrows!");
+                System.out.println("You attempt to shoot an arrow into the room.");
+
+                if (player.shoot(player.currentRoom, wumpus, spiders, 
+								 rooms[player.currentRoom - 1]) == 1) {
+                    System.out.println("You are out of arrows!\nYou lose.");
                     break;
                 }
                 
@@ -57,5 +59,7 @@ class main {
             else
                 System.out.println("Unknown option.");
         }
+
+		System.out.println("You win!");
 	}
 }
