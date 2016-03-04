@@ -17,13 +17,14 @@ class Player {
 	}
 
 	void move(int room, Room roomObj) {
-        if (currentRoom == room)
-            System.out.println("You are already here.");
-        else if (room == roomObj.adjroom1 ||
-                 room == roomObj.adjroom2 ||
-                 room == roomObj.adjroom3)
-            System.out.println("There is not a tunnel leading to that room.");
-        else
-            currentRoom = room;
+		System.out.println(roomObj.adjroom1);
+		System.out.println(roomObj.adjroom2);
+		System.out.println(roomObj.adjroom3);
+    	if (room == roomObj.adjroom1 ||
+            room == roomObj.adjroom2 ||
+            room == roomObj.adjroom3)
+			currentRoom = room;
+		else
+			System.out.println("You cannot go there from here.");
 	}
 }

@@ -50,7 +50,7 @@ class main {
             else if (charput == 'M' || charput == 'm') {
                 System.out.print("Which room?: ");
                 intput  = scanner.nextInt();
-                player.move(intput, rooms[player.currentRoom]);
+                player.move(intput, rooms[player.currentRoom - 1]);
             }
             
             /* handle unknown charput */
