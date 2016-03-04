@@ -8,15 +8,15 @@ class Player {
     int arrows = 3;
     int currentRoom = 1;
 
-	int shoot(int room, ArrayList<Integer> wsp, Room roomObj) {
+	int shoot(int room, int wumpus, int[] spiders, Room roomObj) {
 		if (arrows != 0) {
             arrows -= 1;
 			if (room == roomObj.adjroom1 ||
             	room == roomObj.adjroom2 ||
             	room == roomObj.adjroom3) {
-				if (room == wsp[0])
+				if (room == wumpus)
 					System.out.println("You hit the wumpus!");
-				else if (room == wsp[1] || room == wsp[2])
+				else if (room == spiders[0] || room == spiders[1])
 					System.out.println("You hit a spider!");
 			}
 			else

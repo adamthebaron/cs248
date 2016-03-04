@@ -10,29 +10,31 @@ class main {
         String[] adjRooms = null;
         char charput;
         int intput;
-		/* use arraylist to store room # for wumpus/spider/pit
-		   to allow for unique random number generation
-		   0. wumpus room
-		   1. spider room 1
-		   2. spider room 2
-		   3. pit room 1
-		   4. pit room 2 */
+        int i;
+        int wumpus;
+        int[] spiders = new int[2];
+        int[] pits = new int[2];
+		/* use arraylist to generate room # for wumpus/spider/pit
+		   to allow for unique random number generation */
 		ArrayList<Integer> wsp = new ArrayList<Integer>();
-		for (int i = 0; i <= 4; i++)
+
+		for (i = 2; i <= 10; i++) {
 			wsp.add(new Integer(i));
+        }
+        
+        Collections.shuffle(wsp);
+        wumpus = wsp.get(0);
+        spiders[0] = wsp.get(1);
+        spiders[1] = wsp.get(2);
+        pits[0] = wsp.get(3);
+        pits[1] = wsp.get(4);
+        System.out.println(wumpus);
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         Scanner scan = new Scanner(new FileReader("roomlayout.txt"));
         Room[] rooms = new Room[scan.nextInt()];
-		while(true) {
-			wumpus = rand.nextInt(rooms.length + 1);
-			spiders[0] = rand.nextInt(rooms.length + 1);
-			spiders[1] = rand.nextInt(rooms.length + 1);
-			pits[0] = rand.nextInt(rooms.length + 1);
-			pits[1] = rand.nextInt(rooms.length + 1);
-			if(wumpus == spiders[0] || wumpus == spiders[1] || 
 
-        for (int i = 0; i < rooms.length; i++) {
+        for (i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(scan);
         }
 
