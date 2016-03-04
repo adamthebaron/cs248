@@ -10,13 +10,27 @@ class main {
         String[] adjRooms = null;
         char charput;
         int intput;
-        int wumpus;
-        int[] spiders = new int[2];
-       	int[] pits = new int[2];
+		/* use arraylist to store room # for wumpus/spider/pit
+		   to allow for unique random number generation
+		   0. wumpus room
+		   1. spider room 1
+		   2. spider room 2
+		   3. pit room 1
+		   4. pit room 2 */
+		ArrayList<Integer> wsp = new ArrayList<Integer>();
+		for (int i = 0; i <= 4; i++)
+			wsp.add(new Integer(i));
         Scanner scanner = new Scanner(System.in);
         Player player = new Player();
         Scanner scan = new Scanner(new FileReader("roomlayout.txt"));
         Room[] rooms = new Room[scan.nextInt()];
+		while(true) {
+			wumpus = rand.nextInt(rooms.length + 1);
+			spiders[0] = rand.nextInt(rooms.length + 1);
+			spiders[1] = rand.nextInt(rooms.length + 1);
+			pits[0] = rand.nextInt(rooms.length + 1);
+			pits[1] = rand.nextInt(rooms.length + 1);
+			if(wumpus == spiders[0] || wumpus == spiders[1] || 
 
         for (int i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(scan);
