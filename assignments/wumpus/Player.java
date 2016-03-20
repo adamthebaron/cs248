@@ -14,24 +14,15 @@ class Player {
      * @param wumpus room where wumpus is located
      * @param roomObj current room info
      * @return true if wumpus is hit
-     * @return false if anything else happens
+     * @return false if anything else happens, including running out of arrows
      */
 	boolean shoot(int room, int wumpus, Room roomObj) {
-        if (arrows > 0)
-            arrows -= 1;
-        else if (arrows == 0) {
-            System.out.println("You are out of arrows!");
-            return false;
-        }
-		if ((room == roomObj.adjroom1 ||
-            room == roomObj.adjroom2 ||
-            room == roomObj.adjroom3) && room == wumpus) {
-			System.out.println("You hit the wumpus!");
+        arrows = arrows - 1;
+        if (singleCheck(room, roomObj) && room == wumpus)
             return true;
-        }
         else
             return false;
-	}
+    }
 
     /**
      * move player throughout map

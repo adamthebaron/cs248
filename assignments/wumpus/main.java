@@ -69,8 +69,10 @@ class main {
                 else if (!player.shoot(intput, wumpus, rooms[player.currentRoom - 1]))
                     System.out.println("You dont hit anything and lose an arrow.");
                 
-                else if (player.shoot(intput, wumpus, rooms[player.currentRoom - 1]))
+                else if (player.shoot(intput, wumpus, rooms[player.currentRoom - 1])) {
+                    System.out.println("You hit the wumpus, you win!");
                     System.exit(0);
+                }
             }
             
             /* handle move option */
