@@ -45,7 +45,12 @@ class main {
                                 + ", " + rooms[player.currentRoom - 1].adjroom2 + ", and " 
                                 + rooms[player.currentRoom - 1].adjroom3 + ".");
             System.out.println("You have " + player.arrows + " arrows left.");
-
+            if (player.singleCheck(wumpus, rooms[player.currentRoom - 1]))
+                System.out.println("You smell a wumpus nearby.");
+            if (player.multiCheck(spiders, rooms[player.currentRoom - 1]))
+                System.out.println("You hear a spider nearby.");
+            if (player.multiCheck(pits, rooms[player.currentRoom - 1]))
+                System.out.println("You hear a rock fall into a pit nearby");
             System.out.print("What will you do? (S to Shoot, M to Move): ");
             charput = scanner.next().charAt(0);
             

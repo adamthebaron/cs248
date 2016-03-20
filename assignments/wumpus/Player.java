@@ -30,12 +30,12 @@ class Player {
             currentRoom = room;
  		else
 			System.out.println("You cannot go there from here.");
-        if (this.singleCheck(wumpus, roomObj))
+        /* if (this.singleCheck(wumpus, roomObj))
             System.out.println("\nYou smell a wumpus nearby.");
         if (this.multiCheck(spiders, roomObj))
             System.out.println("\nYou hear a spider nearby.");
         if (this.multiCheck(pits, roomObj))
-            System.out.println("\nYou hear a rock fall into a pit nearby.");
+            System.out.println("\nYou hear a rock fall into a pit nearby."); */
 
         if (currentRoom == wumpus) {
             System.out.println("You were attacked by the wumpus!");
