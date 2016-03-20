@@ -17,22 +17,20 @@ class Player {
      * @return false if anything else happens
      */
 	boolean shoot(int room, int wumpus, Room roomObj) {
-        if (arrows == 0)
-            return false;
-        if (arrows > 0) {
+        if (arrows > 0)
             arrows -= 1;
-			if ((room == roomObj.adjroom1 ||
-            	room == roomObj.adjroom2 ||
-            	room == roomObj.adjroom3) && room == wumpus) {
-					System.out.println("You hit the wumpus!");
-                    return true;
-                }
-                return false;
-			}
-			else
-				System.out.println("You can't shoot an arrow there.");
-
-        return false;
+        else if (arrows == 0) {
+            System.out.println("You are out of arrows!");
+            return false;
+        }
+		if ((room == roomObj.adjroom1 ||
+            room == roomObj.adjroom2 ||
+            room == roomObj.adjroom3) && room == wumpus) {
+			System.out.println("You hit the wumpus!");
+            return true;
+        }
+        else
+            return false;
 	}
 
     /**

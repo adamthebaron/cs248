@@ -57,26 +57,26 @@ class main {
             /* handle shoot option */
             if (charput == 'S' || charput == 's') {
                 System.out.print("Which room?: ");
-                charput = scanner.next().charAt(0);
+                intput = scanner.nextInt();
                 System.out.println("You attempt to shoot an arrow into the room.");
 
-                if (!player.shoot(charput, wumpus, rooms[player.currentRoom - 1])
+                if (!player.shoot(intput, wumpus, rooms[player.currentRoom - 1])
                     && player.arrows == 0) {
                     System.out.println("You are out of arrows!");
                     break;
                 }
 
-                else if (!player.shoot(charput, wumpus, rooms[player.currentRoom - 1]))
+                else if (!player.shoot(intput, wumpus, rooms[player.currentRoom - 1]))
                     System.out.println("You dont hit anything and lose an arrow.");
                 
-                else if (player.shoot(charput, wumpus, rooms[player.currentRoom - 1]))
+                else if (player.shoot(intput, wumpus, rooms[player.currentRoom - 1]))
                     System.exit(0);
             }
             
             /* handle move option */
             else if (charput == 'M' || charput == 'm') {
                 System.out.print("Which room?: ");
-                intput  = scanner.nextInt();
+                intput = scanner.nextInt();
                 if (player.move(intput, wumpus, spiders, pits, rooms[player.currentRoom - 1]))
                     break;
             }
@@ -84,7 +84,8 @@ class main {
             /* handle unknown charput */
             else
                 System.out.println("Unknown option.");
-        
+
+            System.out.println("");
         }
 
 		System.out.println("You lose!");
