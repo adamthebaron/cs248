@@ -45,6 +45,7 @@ class main {
                                 + ", " + rooms[player.currentRoom - 1].adjroom2 + ", and " 
                                 + rooms[player.currentRoom - 1].adjroom3 + ".");
             System.out.println("You have " + player.arrows + " arrows left.");
+
             System.out.print("What will you do? (S to Shoot, M to Move): ");
             charput = scanner.next().charAt(0);
             

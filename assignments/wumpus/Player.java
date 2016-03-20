@@ -11,45 +11,30 @@ class Player {
 	boolean shoot(int room, int wumpus, Room roomObj) {
 		if (arrows > 0) {
             arrows -= 1;
-			if (room == roomObj.adjroom1 ||
+			if ((room == roomObj.adjroom1 ||
             	room == roomObj.adjroom2 ||
-            	room == roomObj.adjroom3) {
-				if (room == wumpus) {
+            	room == roomObj.adjroom3) && room == wumpus) {
 					System.out.println("You hit the wumpus!");
                     return true;
                 }
+                return false;
 			}
 			else
 				System.out.println("You can't shoot an arrow there.");
-		}
 
         return false;
 	}
 
 	boolean move(int room, int wumpus, int[] spiders, int[] pits, Room roomObj) {
-    	if (room == roomObj.adjroom1 ||
-            room == roomObj.adjroom2 ||
-            room == roomObj.adjroom3)
-			currentRoom = room;
+    	if (this.singleCheck(room, roomObj))
+            currentRoom = room;
  		else
 			System.out.println("You cannot go there from here.");
-       if (wumpus == roomObj.adjroom1 ||
-            wumpus == roomObj.adjroom2 ||
-            wumpus == roomObj.adjroom3)
+        if (this.singleCheck(wumpus, roomObj))
             System.out.println("\nYou smell a wumpus nearby.");
-        if (spiders[0] == roomObj.adjroom1 ||
-            spiders[0] == roomObj.adjroom2 ||
-            spiders[0] == roomObj.adjroom3 ||
-            spiders[1] == roomObj.adjroom1 ||
-            spiders[1] == roomObj.adjroom2 ||
-            spiders[1] == roomObj.adjroom3)
+        if (this.multiCheck(spiders, roomObj))
             System.out.println("\nYou hear a spider nearby.");
-        if (pits[0] == roomObj.adjroom1 ||
-            pits[0] == roomObj.adjroom2 ||
-            pits[0] == roomObj.adjroom3 ||
-            pits[1] == roomObj.adjroom1 ||
-            pits[1] == roomObj.adjroom2 ||
-            pits[1] == roomObj.adjroom3)
+        if (this.multiCheck(pits, roomObj))
             System.out.println("\nYou hear a rock fall into a pit nearby.");
 
         if (currentRoom == wumpus) {
@@ -67,4 +52,23 @@ class Player {
         else
             return false;
 	}
+
+    boolean singleCheck(int room, Room roomObj) {
+        if (room == roomObj.adjroom1 ||
+            room == roomObj.adjroom2 ||
+            room == roomObj.adjroom3)
+                return true;
+        else
+                return false;
+    }
+
+    boolean multiCheck(int[] rooms, Room roomObj) {
+        for (int i = 0; i <= (rooms.length - 1); i++)
+            if (rooms[i] == roomObj.adjroom1 ||
+                rooms[i] == roomObj.adjroom2 ||
+                rooms[i] == roomObj.adjroom3)
+                    return true;
+
+        return false;
+    }
 }
