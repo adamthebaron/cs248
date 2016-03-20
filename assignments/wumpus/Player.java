@@ -17,6 +17,8 @@ class Player {
      * @return false if anything else happens
      */
 	boolean shoot(int room, int wumpus, Room roomObj) {
+        if (arrows == 0)
+            return false;
         if (arrows > 0) {
             arrows -= 1;
 			if ((room == roomObj.adjroom1 ||

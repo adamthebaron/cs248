@@ -60,12 +60,17 @@ class main {
                 charput = scanner.next().charAt(0);
                 System.out.println("You attempt to shoot an arrow into the room.");
 
-                if (player.shoot(player.currentRoom, wumpus, rooms[player.currentRoom - 1])) {
+                if (!player.shoot(charput, wumpus, rooms[player.currentRoom - 1])
+                    && player.arrows == 0) {
                     System.out.println("You are out of arrows!");
                     break;
                 }
+
+                else if (!player.shoot(charput, wumpus, rooms[player.currentRoom - 1]))
+                    System.out.println("You dont hit anything and lose an arrow.");
                 
-                System.out.println("You shoot into room " + charput);
+                else if (player.shoot(charput, wumpus, rooms[player.currentRoom - 1]))
+                    System.exit(0);
             }
             
             /* handle move option */
