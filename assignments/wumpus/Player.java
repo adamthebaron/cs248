@@ -8,8 +8,16 @@ class Player {
     int arrows = 3;
     int currentRoom = 1;
 
+    /**
+     * shoots arrow and checks result
+     * @param room room to shoot in
+     * @param wumpus room where wumpus is located
+     * @param roomObj current room info
+     * @return true if wumpus is hit
+     * @return false if anything else happens
+     */
 	boolean shoot(int room, int wumpus, Room roomObj) {
-		if (arrows > 0) {
+        if (arrows > 0) {
             arrows -= 1;
 			if ((room == roomObj.adjroom1 ||
             	room == roomObj.adjroom2 ||
@@ -25,17 +33,21 @@ class Player {
         return false;
 	}
 
+    /**
+     * move player throughout map
+     * @param room room to move to
+     * @param wumpus room where wumpus is located
+     * @param spiders rooms where spiders are located
+     * @param pits  rooms where pits are located
+     * @param roomObj current room info
+     * @return true if move resulted in losing game
+     * @return false if move resulted in not losing game
+     */
 	boolean move(int room, int wumpus, int[] spiders, int[] pits, Room roomObj) {
     	if (this.singleCheck(room, roomObj))
             currentRoom = room;
  		else
 			System.out.println("You cannot go there from here.");
-        /* if (this.singleCheck(wumpus, roomObj))
-            System.out.println("\nYou smell a wumpus nearby.");
-        if (this.multiCheck(spiders, roomObj))
-            System.out.println("\nYou hear a spider nearby.");
-        if (this.multiCheck(pits, roomObj))
-            System.out.println("\nYou hear a rock fall into a pit nearby."); */
 
         if (currentRoom == wumpus) {
             System.out.println("You were attacked by the wumpus!");
@@ -53,6 +65,13 @@ class Player {
             return false;
 	}
 
+    /**
+     * check to see if a single room contains something
+     * @param room room to check
+     * @param roomObj current room info
+     * @return true if there is something in room
+     * @return false if there is not something in room
+     */
     boolean singleCheck(int room, Room roomObj) {
         if (room == roomObj.adjroom1 ||
             room == roomObj.adjroom2 ||
@@ -62,6 +81,13 @@ class Player {
                 return false;
     }
 
+    /**
+     * check to see if multiple rooms contain something
+     * @param rooms rooms to check
+     * @param roomObj current room info
+     * @return true if there is something in a room
+     * @return false if there is not something in any room
+     */
     boolean multiCheck(int[] rooms, Room roomObj) {
         for (int i = 0; i <= (rooms.length - 1); i++)
             if (rooms[i] == roomObj.adjroom1 ||
