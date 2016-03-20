@@ -27,23 +27,45 @@ class Player {
         return 0;
 	}
 
-	void move(int room, int wumpus, int[] spiders, Room roomObj) {
+	boolean move(int room, int wumpus, int[] spiders, int[] pits, Room roomObj) {
     	if (room == roomObj.adjroom1 ||
             room == roomObj.adjroom2 ||
             room == roomObj.adjroom3)
 			currentRoom = room;
-        if (wumpus == roomObj.adjroom1 ||
+ 		else
+			System.out.println("You cannot go there from here.");
+       if (wumpus == roomObj.adjroom1 ||
             wumpus == roomObj.adjroom2 ||
             wumpus == roomObj.adjroom3)
-            System.out.println("You smell a wumpus nearby.");
+            System.out.println("\nYou smell a wumpus nearby.");
         if (spiders[0] == roomObj.adjroom1 ||
             spiders[0] == roomObj.adjroom2 ||
             spiders[0] == roomObj.adjroom3 ||
             spiders[1] == roomObj.adjroom1 ||
             spiders[1] == roomObj.adjroom2 ||
             spiders[1] == roomObj.adjroom3)
-            System.out.println("You hear a spider nearby.");
-		else
-			System.out.println("You cannot go there from here.");
+            System.out.println("\nYou hear a spider nearby.");
+        if (pits[0] == roomObj.adjroom1 ||
+            pits[0] == roomObj.adjroom2 ||
+            pits[0] == roomObj.adjroom3 ||
+            pits[1] == roomObj.adjroom1 ||
+            pits[1] == roomObj.adjroom2 ||
+            pits[1] == roomObj.adjroom3)
+            System.out.println("\nYou hear a rock fall into a pit nearby.");
+
+        if (currentRoom == wumpus) {
+            System.out.println("You were attacked by the wumpus!");
+            return true;
+        }
+        else if (currentRoom == pits[0] || currentRoom == pits[1]) {
+            System.out.println("You fell into a pit!");
+            return true;
+        }
+        else if (currentRoom == spiders[0] || currentRoom == spiders[1]) {
+            System.out.println("You were attacked by a spider!");
+            return true;
+        }
+        else
+            return false;
 	}
 }

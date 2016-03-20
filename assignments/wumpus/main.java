@@ -36,9 +36,8 @@ class main {
         for (i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(scan);
         }
-        System.out.println(wumpus);
+        System.out.println(wumpus + " " + Arrays.toString(spiders) + " " + Arrays.toString(pits));
         for (;;) {
-            System.out.println("");
             /* print current info */
             System.out.println("You are in room " + player.currentRoom);
             System.out.println(rooms[player.currentRoom - 1].description);
@@ -68,7 +67,8 @@ class main {
             else if (charput == 'M' || charput == 'm') {
                 System.out.print("Which room?: ");
                 intput  = scanner.nextInt();
-                player.move(intput, wumpus, spiders, rooms[player.currentRoom - 1]);
+                if (player.move(intput, wumpus, spiders, pits, rooms[player.currentRoom - 1]))
+                    break;
             }
             
             /* handle unknown charput */
