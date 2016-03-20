@@ -8,23 +8,22 @@ class Player {
     int arrows = 3;
     int currentRoom = 1;
 
-	int shoot(int room, int wumpus, int[] spiders, Room roomObj) {
-		if (arrows != 0) {
+	boolean shoot(int room, int wumpus, Room roomObj) {
+		if (arrows > 0) {
             arrows -= 1;
 			if (room == roomObj.adjroom1 ||
             	room == roomObj.adjroom2 ||
             	room == roomObj.adjroom3) {
-				if (room == wumpus)
+				if (room == wumpus) {
 					System.out.println("You hit the wumpus!");
-				else if (room == spiders[0] || room == spiders[1])
-					System.out.println("You hit a spider!");
+                    return true;
+                }
 			}
 			else
 				System.out.println("You can't shoot an arrow there.");
 		}
-        else
-            return 1;
-        return 0;
+
+        return false;
 	}
 
 	boolean move(int room, int wumpus, int[] spiders, int[] pits, Room roomObj) {

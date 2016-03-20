@@ -54,9 +54,8 @@ class main {
                 charput = scanner.next().charAt(0);
                 System.out.println("You attempt to shoot an arrow into the room.");
 
-                if (player.shoot(player.currentRoom, wumpus, spiders, 
-								 rooms[player.currentRoom - 1]) == 1) {
-                    System.out.println("You are out of arrows!\nYou lose.");
+                if (player.shoot(player.currentRoom, wumpus, rooms[player.currentRoom - 1])) {
+                    System.out.println("You are out of arrows!");
                     break;
                 }
                 
@@ -77,6 +76,6 @@ class main {
         
         }
 
-		System.out.println("You win!");
+		System.out.println("You lose!");
 	}
 }
