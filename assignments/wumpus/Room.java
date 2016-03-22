@@ -10,6 +10,9 @@ class Room {
     public int adjroom2;
     public int adjroom3;
 
+    /** initialize room variable
+     * @param scanner read input from file
+     */
     public Room(Scanner scanner) {
         roomNum = scanner.nextInt();
         adjroom1 = scanner.nextInt();

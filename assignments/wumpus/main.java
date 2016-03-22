@@ -4,6 +4,12 @@ import java.io.*;
 import java.util.*;
 
 class main {
+    /* 
+     * Initialize variables to hold game data,
+     * read from input file,
+     * run infinite loop to handle user input,
+     * and finally exit upon a win or loss
+     */
     public static void main(String[] args) throws IOException {
         int totalRooms = 0;
         String line = null;
