@@ -17,11 +17,8 @@ class Player {
      * @return false if anything else happens, including running out of arrows
      */
 	boolean shoot(int room, int wumpus, Room roomObj) {
-        arrows = arrows - 1;
-        if (singleCheck(room, roomObj) && room == wumpus)
-            return true;
-        else
-            return false;
+        arrows--;
+        return (singleCheck(room, roomObj) && room == wumpus);
     }
 
     /**
@@ -64,12 +61,9 @@ class Player {
      * @return false if there is not something in room
      */
     boolean singleCheck(int room, Room roomObj) {
-        if (room == roomObj.adjroom1 ||
-            room == roomObj.adjroom2 ||
-            room == roomObj.adjroom3)
-                return true;
-        else
-                return false;
+        return (room == roomObj.adjroom1 ||
+                room == roomObj.adjroom2 ||
+                room == roomObj.adjroom3);
     }
 
     /**
