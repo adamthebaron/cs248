@@ -1,6 +1,6 @@
 /** @author CS248 */
 public interface queue {
-    public void enqueue(Object x);
+    public void enqueue(Object obj);
     public Object dequeue();
     public Object getFront();
     public int sizeOf();
