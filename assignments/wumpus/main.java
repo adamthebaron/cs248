@@ -64,16 +64,15 @@ class main {
                 intput = scanner.nextInt();
                 System.out.println("You attempt to shoot an arrow into the room.");
 
-                if (!player.shoot(intput, wumpus, rooms[player.currentRoom - 1])
-                        && player.arrows == 0) {
-                    System.out.println("You are out of arrows!");
-                    break;
-                        }
+                if (!player.shoot(intput, wumpus, rooms[player.currentRoom - 1])) {
+                    System.out.println("You don't hit anything and lose an arrow.");
+                    if (player.arrows == 0) {
+                        System.out.println("You are out of arrows!");
+                        break;
+                    }
+                }
 
-                else if (!player.shoot(intput, wumpus, rooms[player.currentRoom - 1]))
-                    System.out.println("You dont hit anything and lose an arrow.");
-
-                else if (player.shoot(intput, wumpus, rooms[player.currentRoom - 1])) {
+                else {
                     System.out.println("You hit the wumpus, you win!");
                     System.exit(0);
                 }
