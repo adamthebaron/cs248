@@ -42,7 +42,7 @@ class main {
         for (i = 0; i < rooms.length; i++) {
             rooms[i] = new Room(scan);
         }
-        System.out.println(wumpus + " " + Arrays.toString(spiders) + " " + Arrays.toString(pits));
+
         for (;;) {
             /* print current info */
             System.out.println("You are in room " + player.currentRoom);
