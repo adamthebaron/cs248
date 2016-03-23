@@ -1,5 +1,5 @@
 /** @author CS248 */
-public class queueArray implements queue {
+public class QueueArray implements queue {
     Object[] items;
     int front;
     int back;

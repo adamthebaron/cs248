@@ -1,5 +1,5 @@
 /** @author Adam Kessler */
-class party {
+class Party {
     int time;
     int people;
     String name;
