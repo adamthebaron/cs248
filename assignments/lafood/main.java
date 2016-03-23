@@ -12,8 +12,13 @@ class main {
         scan.close();
         scan = new Scanner(file);
         QueueArray queue = new QueueArray(100);
-        while (scan.nextLine() != "Q") {
-            
+        String line;
+        while (line = scan.nextLine()) {
+            switch (line.charAt(0)) {
+                case 'A':
+                case 'T':
+                case 'Q':
+            }
         }
     }
 }
