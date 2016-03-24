@@ -14,7 +14,7 @@ public class QueueLL implements queue {
 	
 	public void enqueue(Object obj) {
 		node newnode = new node();
-		newnode.item = x;
+		newnode.item = obj;
 		newnode.next = null;
 		
 		if (back == null)

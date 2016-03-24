@@ -13,7 +13,8 @@ class main {
         scan = new Scanner(new FileReader(file));
         QueueLL queue = new QueueLL();
         String line;
-        while ((line = scan.nextLine()) != null) {
+        while (scan.hasNext()) {
+			line = scan.nextLine();
             String[] curLine = line.split(" ");
             switch (line.charAt(0)) {
                 case 'A':
