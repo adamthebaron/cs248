@@ -11,7 +11,7 @@ class main {
         file = scan.next();
         scan.close();
         scan = new Scanner(new FileReader(file));
-        QueueArray queue = new QueueArray(100);
+        QueueLL queue = new QueueLL();
         String line;
         while ((line = scan.nextLine()) != null) {
             String[] curLine = line.split(" ");
@@ -29,7 +29,7 @@ class main {
                                         + Integer.toString(party.people));
                     queue.enqueue(party);
                 case 'T':
-                    System.out.println("Time is " +  
+                   //System.out.println("Time is " +  
                 case 'Q':
                     break;
             }
