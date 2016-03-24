@@ -47,6 +47,11 @@ class main {
 				System.out.println("Average waiting time was " 
 									+ ((float)totalTime / (float)totalSeated)
 									+ " minutes.");
+				System.out.println("The following parties were not seated: ");
+				while(!queue.isEmpty()) {
+					Party party = (Party)queue.dequeue();
+					System.out.println(party.name);
+				}
 				break;
 			}
         }
