@@ -5,7 +5,7 @@ public class QueueArray implements queue {
     int back;
     int count;
 
-    public queueArray(int maxsizeOf) {
+    public QueueArray(int maxsizeOf) {
         count = 0;
         back = 0;
         front = 1;
