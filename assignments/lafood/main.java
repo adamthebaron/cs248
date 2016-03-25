@@ -16,18 +16,22 @@ class main {
     int curTime = 0;
     int totalTime = 0;
     int totalSeated = 0;
+    
     while ((line = scan.nextLine()) != null) {
       String[] curLine = line.split(" ");
+      
       if (line.charAt(0) == 'A') {
         Party party = new Party();
         party.time = Integer.parseInt(curLine[1]);
         party.people = Integer.parseInt(curLine[2]);
+        
         for (int i = 3; i < curLine.length; i++) {
           if (party.name == null)
             party.name = curLine[i];
           else
             party.name += " " + curLine[i];
         }
+        
         System.out.println("Adding party "
             + party.name
             + " at time "
@@ -36,6 +40,7 @@ class main {
             + Integer.toString(party.people));
         queue.enqueue(party);
       }
+      
       else if (line.charAt(0) == 'T') {
         Party party = (Party)queue.dequeue();
         curTime = Integer.parseInt(curLine[1]);
@@ -44,6 +49,7 @@ class main {
         System.out.println("Time is " + curLine[1]);
         System.out.println("Seating " + party.name + ".");
       }
+      
       else if (line.charAt(0) == 'Q') {
         System.out.println("Simulation terminated.");
         System.out.println("Total waiting time was " + totalTime + " minutes.");
@@ -52,10 +58,12 @@ class main {
             + ((float)totalTime / (float)totalSeated)
             + " minutes.");
         System.out.println("The following parties were not seated: ");
+        
         while(!queue.isEmpty()) {
           Party party = (Party)queue.dequeue();
           System.out.println(party.name);
         }
+        
         break;
       }
     }
