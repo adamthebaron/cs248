@@ -3,6 +3,12 @@
 import java.io.*;
 import java.util.*;
 
+/*
+ * All code is handled in main()
+ * initialize program variables and
+ * run loop to parse each line of input
+ * until 'Q' sentinel or null is found
+ */
 class main {
   public static void main(String[] args) throws IOException {
     String file;
@@ -18,8 +24,13 @@ class main {
     int totalSeated = 0;
     
     while ((line = scan.nextLine()) != null) {
+      /*
+       * place current line in string array to
+       * handle per element 
+       */
       String[] curLine = line.split(" ");
       
+      /* handle 'A' lines */
       if (line.charAt(0) == 'A') {
         Party party = new Party();
         party.time = Integer.parseInt(curLine[1]);
@@ -41,6 +52,7 @@ class main {
         queue.enqueue(party);
       }
       
+      /* handle 'T' lines */
       else if (line.charAt(0) == 'T') {
         Party party = (Party)queue.dequeue();
         curTime = Integer.parseInt(curLine[1]);
@@ -50,6 +62,7 @@ class main {
         System.out.println("Seating " + party.name + ".");
       }
       
+      /* handle 'Q' line and break */
       else if (line.charAt(0) == 'Q') {
         System.out.println("Simulation terminated.");
         System.out.println("Total waiting time was " + totalTime + " minutes.");
