@@ -17,13 +17,17 @@ class main {
     int totalTime = 0;
     int totalSeated = 0;
     while ((line = scan.nextLine()) != null) {
-      //line = scan.nextLine();
       String[] curLine = line.split(" ");
       if (line.charAt(0) == 'A') {
         Party party = new Party();
         party.time = Integer.parseInt(curLine[1]);
         party.people = Integer.parseInt(curLine[2]);
-        party.name = Arrays.toString(Arrays.copyOfRange(curLine, 3, curLine.length));
+        for (int i = 3; i < curLine.length; i++) {
+          if (party.name == null)
+            party.name = curLine[i];
+          else
+            party.name += " " + curLine[i];
+        }
         System.out.println("Adding party "
             + party.name
             + " at time "
