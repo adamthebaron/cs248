@@ -23,7 +23,7 @@ public class Sorts {
 		}
 	}
 	
-	public static void bubble(Comparable[] A) {
+	public static Comparable[] bubble(Comparable[] A) {
 		boolean done = false;
     
     while (!done) {
@@ -35,6 +35,7 @@ public class Sorts {
 					done = false;
 				}
 		}
+    return A;
 	}
 	
 	public static void insertion(Comparable[] A) {
