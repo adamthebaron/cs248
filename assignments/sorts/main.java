@@ -31,7 +31,7 @@ class main {
 
         return numbers;
     }
-    /* bubble, insertion, selection, quicksort, shell */
+    
     static void sort(Integer[] numbers, boolean print, int n) {
         bubbleSort(numbers, print, n);
         insertionSort(numbers, print, n);
@@ -43,12 +43,14 @@ class main {
     static void bubbleSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
-        Integer[] Sort = numbers;
+		Integer[] Sort = new Integer[n];
+		for (int i = 0; i < numbers.length; i++)
+			Sort[i] = new Integer(numbers[i]);
         System.out.print("bubble sort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.bubble(Sort);
         after = (int) System.currentTimeMillis();
-        System.out.println(after - before + " milliseconds");
+        System.out.println((after - before) + " milliseconds");
         if (print)
             System.out.println(Arrays.toString(Sort));
     }
@@ -56,12 +58,14 @@ class main {
     static void insertionSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
-        Integer[] Sort = numbers;
+        Integer[] Sort = new Integer[n];
+		for (int i = 0; i < numbers.length; i++)
+			Sort[i] = new Integer(numbers[i]);
         System.out.print("insertion sort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.insertion(Sort);
         after = (int) System.currentTimeMillis();
-        System.out.println(after - before + " milliseconds");
+        System.out.println((after - before) + " milliseconds");
         if (print)
             System.out.println(Arrays.toString(Sort));
 
@@ -70,12 +74,14 @@ class main {
     static void selectionSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
-        Integer[] Sort = numbers;
+        Integer[] Sort = new Integer[n];
+		for (int i = 0; i < numbers.length; i++)
+			Sort[i] = new Integer(numbers[i]);
         System.out.print("selection sort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.select(Sort);
         after = (int) System.currentTimeMillis();
-        System.out.println(after - before + " milliseconds");
+        System.out.println((after - before) + " milliseconds");
         if (print)
             System.out.println(Arrays.toString(Sort));
 
@@ -84,12 +90,14 @@ class main {
     static void quickSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
-        Integer[] Sort = numbers;
+        Integer[] Sort = new Integer[n];
+		for (int i = 0; i < numbers.length; i++)
+			Sort[i] = new Integer(numbers[i]);
         System.out.print("quicksort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.quick(Sort);
         after = (int) System.currentTimeMillis();
-        System.out.println(after - before + " milliseconds");
+        System.out.println((after - before) + " milliseconds");
         if (print)
             System.out.println(Arrays.toString(Sort));
 
@@ -98,12 +106,14 @@ class main {
     static void shellSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
-        Integer[] Sort = numbers;
+        Integer[] Sort = new Integer[n];
+		for (int i = 0; i < numbers.length; i++)
+			Sort[i] = new Integer(numbers[i]);
         System.out.print("shellsort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.shell(Sort);
         after = (int) System.currentTimeMillis();
-        System.out.println(after - before + " milliseconds");
+        System.out.println((after - before) + " milliseconds");
         if (print)
             System.out.println(Arrays.toString(Sort));
 
