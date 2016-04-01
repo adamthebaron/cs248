@@ -3,10 +3,10 @@ import java.io.*;
 import java.util.*;
 
 class main {
-	/**initialize variables, ask for input size, randomize number array, 
-		 check for print, call sort 
-		 @param args arguments sent to program 
-	*/
+    /**initialize variables, ask for input size, randomize number array, 
+      check for print, call sort 
+      @param args arguments sent to program 
+      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter input size (n): ");
@@ -21,10 +21,10 @@ class main {
 
         sort(numbers, print, n);
     }
-	
-	/**  randomize number array
-			@param n input size
-			@return numbers random number array */
+
+    /**  randomize number array
+      @param n input size
+      @return numbers random number array */
     static Integer[] populate(int n) {
         ArrayList<Integer> rand = new ArrayList<Integer>();
         Integer[] numbers = new Integer[n];
@@ -39,12 +39,12 @@ class main {
 
         return numbers;
     }
-    
-	/** call all sort methods
-		  @param numbers random number array
-		  @param print check to see if array should be printed
-		  @param n input size
-	*/
+
+    /** call all sort methods
+      @param numbers random number array
+      @param print check to see if array should be printed
+      @param n input size
+      */
     static void sort(Integer[] numbers, boolean print, int n) {
         bubbleSort(numbers, print, n);
         insertionSort(numbers, print, n);
@@ -53,17 +53,17 @@ class main {
         shellSort(numbers, print, n);
     }
 
-	/** call bubble sort on number array
-		  @param numbers random number array
-		  @param print check to see if array should be printed
-		  @param n input size
-	*/
+    /** call bubble sort on number array
+      @param numbers random number array
+      @param print check to see if array should be printed
+      @param n input size
+      */
     static void bubbleSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
-		Integer[] Sort = new Integer[n];
-		for (int i = 0; i < numbers.length; i++)
-			Sort[i] = new Integer(numbers[i]);
+        Integer[] Sort = new Integer[n];
+        for (int i = 0; i < numbers.length; i++)
+            Sort[i] = new Integer(numbers[i]);
         System.out.print("bubble sort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.bubble(Sort);
@@ -73,17 +73,17 @@ class main {
             System.out.println(Arrays.toString(Sort));
     }
 
-	/** call insertion sort on number array
-		  @param numbers random number array
-		  @param print check to see if array should be printed
-		  @param n input size
-	*/
+    /** call insertion sort on number array
+      @param numbers random number array
+      @param print check to see if array should be printed
+      @param n input size
+      */
     static void insertionSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
         Integer[] Sort = new Integer[n];
-		for (int i = 0; i < numbers.length; i++)
-			Sort[i] = new Integer(numbers[i]);
+        for (int i = 0; i < numbers.length; i++)
+            Sort[i] = new Integer(numbers[i]);
         System.out.print("insertion sort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.insertion(Sort);
@@ -94,17 +94,17 @@ class main {
 
     }
 
-	/** call selection sort on number array
-		  @param numbers random number array
-		  @param print check to see if array should be printed
-		  @param n input size
-	*/
+    /** call selection sort on number array
+      @param numbers random number array
+      @param print check to see if array should be printed
+      @param n input size
+      */
     static void selectionSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
         Integer[] Sort = new Integer[n];
-		for (int i = 0; i < numbers.length; i++)
-			Sort[i] = new Integer(numbers[i]);
+        for (int i = 0; i < numbers.length; i++)
+            Sort[i] = new Integer(numbers[i]);
         System.out.print("selection sort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.select(Sort);
@@ -115,17 +115,17 @@ class main {
 
     }
 
-	/** call quick sort on number array
-		  @param numbers random number array
-		  @param print check to see if array should be printed
-		  @param n input size
-	*/
+    /** call quick sort on number array
+      @param numbers random number array
+      @param print check to see if array should be printed
+      @param n input size
+      */
     static void quickSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
         Integer[] Sort = new Integer[n];
-		for (int i = 0; i < numbers.length; i++)
-			Sort[i] = new Integer(numbers[i]);
+        for (int i = 0; i < numbers.length; i++)
+            Sort[i] = new Integer(numbers[i]);
         System.out.print("quicksort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.quick(Sort);
@@ -136,17 +136,17 @@ class main {
 
     }
 
-	/** call shell sort on number array
-		  @param numbers random number array
-		  @param print check to see if array should be printed
-		  @param n input size
-	*/
+    /** call shell sort on number array
+      @param numbers random number array
+      @param print check to see if array should be printed
+      @param n input size
+      */
     static void shellSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
         Integer[] Sort = new Integer[n];
-		for (int i = 0; i < numbers.length; i++)
-			Sort[i] = new Integer(numbers[i]);
+        for (int i = 0; i < numbers.length; i++)
+            Sort[i] = new Integer(numbers[i]);
         System.out.print("shellsort running time: ");
         before = (int) System.currentTimeMillis();
         Sorts.shell(Sort);
