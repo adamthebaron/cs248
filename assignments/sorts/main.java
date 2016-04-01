@@ -1,7 +1,12 @@
+/** @author Adam Kessler */
 import java.io.*;
 import java.util.*;
 
 class main {
+	/**initialize variables, ask for input size, randomize number array, 
+		 check for print, call sort 
+		 @param args arguments sent to program 
+	*/
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter input size (n): ");
@@ -16,7 +21,10 @@ class main {
 
         sort(numbers, print, n);
     }
-
+	
+	/**  randomize number array
+			@param n input size
+			@return numbers random number array */
     static Integer[] populate(int n) {
         ArrayList<Integer> rand = new ArrayList<Integer>();
         Integer[] numbers = new Integer[n];
@@ -32,6 +40,11 @@ class main {
         return numbers;
     }
     
+	/** call all sort methods
+		  @param numbers random number array
+		  @param print check to see if array should be printed
+		  @param n input size
+	*/
     static void sort(Integer[] numbers, boolean print, int n) {
         bubbleSort(numbers, print, n);
         insertionSort(numbers, print, n);
@@ -40,6 +53,11 @@ class main {
         shellSort(numbers, print, n);
     }
 
+	/** call bubble sort on number array
+		  @param numbers random number array
+		  @param print check to see if array should be printed
+		  @param n input size
+	*/
     static void bubbleSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
@@ -55,6 +73,11 @@ class main {
             System.out.println(Arrays.toString(Sort));
     }
 
+	/** call insertion sort on number array
+		  @param numbers random number array
+		  @param print check to see if array should be printed
+		  @param n input size
+	*/
     static void insertionSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
@@ -71,6 +94,11 @@ class main {
 
     }
 
+	/** call selection sort on number array
+		  @param numbers random number array
+		  @param print check to see if array should be printed
+		  @param n input size
+	*/
     static void selectionSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
@@ -87,6 +115,11 @@ class main {
 
     }
 
+	/** call quick sort on number array
+		  @param numbers random number array
+		  @param print check to see if array should be printed
+		  @param n input size
+	*/
     static void quickSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
@@ -103,6 +136,11 @@ class main {
 
     }
 
+	/** call shell sort on number array
+		  @param numbers random number array
+		  @param print check to see if array should be printed
+		  @param n input size
+	*/
     static void shellSort(Integer[] numbers, boolean print, int n) {
         int before = 0;
         int after = 0;
