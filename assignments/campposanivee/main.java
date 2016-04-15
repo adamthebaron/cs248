@@ -49,7 +49,7 @@ class main {
       Camper.name = line[1];
       Camper.age = Integer.parseInt(line[2]);
       Camper.sex = line[3].charAt(0);
-      campers.insert((Comparable) Camper);
+      campers.insert(Camper);
       System.out.println("Adding camper " + line[1]
 			 + " with the age " + line[2]
 			 + " and is " + line[3]);
@@ -66,7 +66,7 @@ class main {
   static float handleA(String[] line, BST campers) {
       float total = 0;
       camper Camper = new camper();
-      while(campers.search((Comparable) Camper) != null)
+      while(campers.search(Camper) != null)
 	  total += Camper.age;
       return total/campers.size();
   }
