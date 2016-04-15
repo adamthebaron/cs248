@@ -1,4 +1,4 @@
-public class camper implements Comparable {
+public class camper {
     String name;
     int age;
     char sex;

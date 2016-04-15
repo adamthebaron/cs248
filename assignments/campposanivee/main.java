@@ -10,7 +10,7 @@ class main {
     System.out.println("Welcome to Camp Posanivee.");
     while ((line = file.nextLine()) != null) {
 	String[] curline = line.split(" ");
-	switch (curline[1].charAt(0)) {
+	switch (line.charAt(0)) {
 	case 'H':
 	    handleH();
 	case 'E':
@@ -49,7 +49,7 @@ class main {
       Camper.name = line[1];
       Camper.age = Integer.parseInt(line[2]);
       Camper.sex = line[3].charAt(0);
-      BST.insert(Camper);
+      campers.insert((Comparable) Camper);
       System.out.println("Adding camper " + line[1]
 			 + " with the age " + line[2]
 			 + " and is " + line[3]);
@@ -63,8 +63,12 @@ class main {
 
   }
 
-  static void handleA(String[] line, BST campers) {
-
+  static float handleA(String[] line, BST campers) {
+      float total = 0;
+      camper Camper = new camper();
+      while(campers.search((Comparable) Camper) != null)
+	  total += Camper.age;
+      return total/campers.size();
   }
 
   static void handleL(String[] line, BST campers) {
