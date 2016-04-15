@@ -32,21 +32,27 @@ class main {
   }
 
   static void handleH() {
-      String help = "\
-      H: Print this help\n\
-      E: Enroll a new camper\n\
-      W: Withdraw a camper\n\
-      D: Display the age and gender of a camper\n\
-      A: Print the average age of the campers\n\
-      L: List all campers names in alphabetical order\n\
-      S: Print the number of boy and girl campers\n\
-      P: List all campers names in preoder\n\
-      Q: Quit";
+      String help = "H: Print this help\n"
+	  + "E: Enroll a new camper\n"
+	  + "W: Withdraw a camper\n"
+	  + "D: Display the age and gender of a camper\n"
+	  + "A: Print the average age of the campers\n"
+	  + "L: List all campers names in alphabetical order\n"
+	  + "S: Print the number of boy and girl campers\n"
+	  + "P: List all campers names in preoder\n"
+	  + "Q: Quit";
       System.out.print(help);
   }
 
   static void handleE(String[] line, BST campers) {
-
+      camper Camper = new camper();
+      Camper.name = line[1];
+      Camper.age = Integer.parseInt(line[2]);
+      Camper.sex = line[3].charAt(0);
+      BST.insert(Camper);
+      System.out.println("Adding camper " + line[1]
+			 + " with the age " + line[2]
+			 + " and is " + line[3]);
   }
 
   static void handleW(String[] line, BST campers) {
