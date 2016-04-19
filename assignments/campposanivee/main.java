@@ -67,7 +67,13 @@ class main {
   }
 
   static void handleD(String[] line, BST campers) {
-		
+	camper Camper = new camper();
+	Camper.name = line[1];
+	camper displayCamper = campers.search(Camper);
+	String gender = (displayCamper.sex == 'F') ? "female" : "male";
+	System.out.println(displayCamper.name + " is "
+						+ displayCamper.age + " years old and is "
+						+ gender);
   }
 
   static float handleA(String[] line, BST campers) {
@@ -84,7 +90,18 @@ class main {
   }
 
   static void handleS(String[] line, BST campers) {
-
+		int boys;
+		int girls;
+		camper Camper = new camper();
+		while(campers.search(Camper) != null) {
+			if (Camper.sex == 'F')
+				girls++;
+			if (Camper.sex == 'M')
+				boys++;
+		}
+		System.out.println("The number of boy campers is "
+							+ boys + " and the number of girl campers is "
+							+ girls);
   }
 
   static void handleP(String[] line, BST campers) {
