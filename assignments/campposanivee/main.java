@@ -10,26 +10,24 @@ class main {
     System.out.println("Welcome to Camp Posanivee.");
     while ((line = file.nextLine()) != null) {
 		String[] curline = line.split(" ");
-		switch (line.charAt(0)) {
-		case 'H':
+		if(line.charAt(0) == 'H')
 			handleH();
-		case 'E':
+		else if(line.charAt(0) == 'E')
 			handleE(curline, campers);
-		case 'W':
+		else if(line.charAt(0) == 'W')
 			handleW(curline, campers);
-		case 'D':
+		else if(line.charAt(0) == 'D')
 			handleD(curline, campers);
-		case 'A':
+		else if(line.charAt(0) == 'A')
 			handleA(campers);
-		case 'L':
+		else if(line.charAt(0) == 'L')
 			handleL(campers);
-		case 'S':
+		else if(line.charAt(0) == 'S')
 			handleS(campers);
-		case 'P':
+		else if(line.charAt(0) == 'P')
 			handleP(campers);
 		}
     }
-  }
 
   static void handleH() {
       String help = "H: Print this help\n"
