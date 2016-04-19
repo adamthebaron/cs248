@@ -69,18 +69,18 @@ class main {
 	Camper.name = line[1];
 	camper displayCamper = (camper) campers.search(Camper);
 	String gender = (displayCamper.sex == 'F') ? "female" : "male";
-	System.out.println(displayCamper.name + " is "
+	System.out.println("Displaying: " + displayCamper.name + " is "
 						+ displayCamper.age + " years old and is "
 						+ gender);
   }
 
-  static float handleA(BST campers) {
+  static int handleA(BST campers) {
     float total = 0;
     camper Camper = new camper();
 	while(campers.search(Camper) != null)
-		total += Camper.age;
+		total += (float) Camper.age;
 	System.out.println("Average age is: " + (int) total);
-	return total/campers.size();
+	return (int) (total/campers.size());
   }
 
   static void handleL(BST campers) {
