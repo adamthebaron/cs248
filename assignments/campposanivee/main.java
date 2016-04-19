@@ -20,13 +20,13 @@ class main {
 		case 'D':
 			handleD(curline, campers);
 		case 'A':
-			handleA(curline, campers);
+			handleA(campers);
 		case 'L':
-			handleL(curline, campers);
+			handleL(campers);
 		case 'S':
-			handleS(curline, campers);
+			handleS(campers);
 		case 'P':
-			handleP(curline, campers);
+			handleP(campers);
 		}
     }
   }
@@ -39,7 +39,7 @@ class main {
 	  + "A: Print the average age of the campers\n"
 	  + "L: List all campers names in alphabetical order\n"
 	  + "S: Print the number of boy and girl campers\n"
-	  + "P: List all campers names in preoder\n"
+	  + "P: List all campers names in preorder\n"
 	  + "Q: Quit\n";
       System.out.print(help);
   }
@@ -53,7 +53,7 @@ class main {
 	  String gender = (Camper.sex == 'F') ? "female" : "male";
       System.out.println("Adding camper " + line[1]
 			 + " with the age " + line[2]
-			 + " and is " + gender);
+			 + " who is " + gender);
   }
 
   static void handleW(String[] line, BST campers) {
@@ -63,35 +63,35 @@ class main {
 	String gender = (Camper.sex == 'F') ? "female" : "male";
 	System.out.println("Removing camper " + line[1]
 			 + " with the age " + line[2]
-			 + " and is " + gender);
+			 + " who is " + gender);
   }
 
   static void handleD(String[] line, BST campers) {
 	camper Camper = new camper();
 	Camper.name = line[1];
-	camper displayCamper = campers.search(Camper);
+	camper displayCamper = (camper) campers.search(Camper);
 	String gender = (displayCamper.sex == 'F') ? "female" : "male";
 	System.out.println(displayCamper.name + " is "
 						+ displayCamper.age + " years old and is "
 						+ gender);
   }
 
-  static float handleA(String[] line, BST campers) {
-      float total = 0;
-      camper Camper = new camper();
-      while(campers.search(Camper) != null)
-	  total += Camper.age;
-		System.out.println("Average age is: " + (int) total);
-      return total/campers.size();
+  static float handleA(BST campers) {
+    float total = 0;
+    camper Camper = new camper();
+	while(campers.search(Camper) != null)
+		total += Camper.age;
+	System.out.println("Average age is: " + (int) total);
+	return total/campers.size();
   }
 
-  static void handleL(String[] line, BST campers) {
+  static void handleL(BST campers) {
 
   }
 
-  static void handleS(String[] line, BST campers) {
-		int boys;
-		int girls;
+  static void handleS(BST campers) {
+		int boys = 0;
+		int girls = 0;
 		camper Camper = new camper();
 		while(campers.search(Camper) != null) {
 			if (Camper.sex == 'F')
@@ -104,7 +104,7 @@ class main {
 							+ girls);
   }
 
-  static void handleP(String[] line, BST campers) {
+  static void handleP(BST campers) {
 	  
   }
 
