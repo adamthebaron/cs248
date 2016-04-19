@@ -40,7 +40,7 @@ class main {
 	  + "L: List all campers names in alphabetical order\n"
 	  + "S: Print the number of boy and girl campers\n"
 	  + "P: List all campers names in preoder\n"
-	  + "Q: Quit";
+	  + "Q: Quit\n";
       System.out.print(help);
   }
 
@@ -105,9 +105,7 @@ class main {
   }
 
   static void handleP(String[] line, BST campers) {
-		camper Camper = new camper();
-		treenode curCamper = new treenode();
-		campers.traversal(curCamper, PREORDER);
+	  
   }
 
   static void handleQ() {
