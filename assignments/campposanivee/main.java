@@ -9,25 +9,25 @@ class main {
     String line;
     System.out.println("Welcome to Camp Posanivee.");
     while ((line = file.nextLine()) != null) {
-	String[] curline = line.split(" ");
-	switch (line.charAt(0)) {
-	case 'H':
-	    handleH();
-	case 'E':
-	    handleE(curline, campers);
-	case 'W':
-	    handleW(curline, campers);
-	case 'D':
-	    handleD(curline, campers);
-	case 'A':
-	    handleA(curline, campers);
-	case 'L':
-	    handleL(curline, campers);
-	case 'S':
-	    handleS(curline, campers);
-	case 'P':
-	    handleP(curline, campers);
-	}
+		String[] curline = line.split(" ");
+		switch (line.charAt(0)) {
+		case 'H':
+			handleH();
+		case 'E':
+			handleE(curline, campers);
+		case 'W':
+			handleW(curline, campers);
+		case 'D':
+			handleD(curline, campers);
+		case 'A':
+			handleA(curline, campers);
+		case 'L':
+			handleL(curline, campers);
+		case 'S':
+			handleS(curline, campers);
+		case 'P':
+			handleP(curline, campers);
+		}
     }
   }
 
@@ -50,17 +50,24 @@ class main {
       Camper.age = Integer.parseInt(line[2]);
       Camper.sex = line[3].charAt(0);
       campers.insert(Camper);
+	  String gender = (Camper.sex == 'F') ? "female" : "male";
       System.out.println("Adding camper " + line[1]
 			 + " with the age " + line[2]
-			 + " and is " + line[3]);
+			 + " and is " + gender);
   }
 
   static void handleW(String[] line, BST campers) {
-
+	camper Camper = new camper();
+	Camper.name = line[1];
+	campers.delete(Camper);
+	String gender = (Camper.sex == 'F') ? "female" : "male";
+	System.out.println("Removing camper " + line[1]
+			 + " with the age " + line[2]
+			 + " and is " + gender);
   }
 
   static void handleD(String[] line, BST campers) {
-
+		
   }
 
   static float handleA(String[] line, BST campers) {
@@ -68,6 +75,7 @@ class main {
       camper Camper = new camper();
       while(campers.search(Camper) != null)
 	  total += Camper.age;
+		System.out.println("Average age is: " + (int) total);
       return total/campers.size();
   }
 
