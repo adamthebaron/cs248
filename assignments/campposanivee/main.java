@@ -105,10 +105,13 @@ class main {
   }
 
   static void handleP(String[] line, BST campers) {
-
+		camper Camper = new camper();
+		treenode curCamper = new treenode();
+		campers.traversal(curCamper, PREORDER);
   }
 
   static void handleQ() {
-
+		System.out.println("Finished managing campers.");
+		System.exit(0);
   }
 }
