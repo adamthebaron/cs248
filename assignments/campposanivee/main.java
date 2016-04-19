@@ -103,7 +103,10 @@ class main {
   }
 
   static void handleP(BST campers) {
-	  
+	  System.out.println("Campers in preorder:");
+	  campers.reset(BST.PREORDER);
+	  while(campers.hasNext())
+		  System.out.println(campers.getNext());
   }
 
   static void handleQ() {
