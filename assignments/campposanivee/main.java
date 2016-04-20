@@ -59,9 +59,7 @@ class main {
 	Camper.name = line[1];
 	campers.delete(Camper);
 	String gender = (Camper.sex == 'F') ? "female" : "male";
-	System.out.println("Removing camper " + line[1]
-			 + " with the age " + line[2]
-			 + " who is " + gender);
+	System.out.println("Removing camper " + line[1]);
   }
 
   static void handleD(String[] line, BST campers) {
@@ -75,11 +73,15 @@ class main {
   }
 
   static void handleA(BST campers) {
-    float total = 0;
+    int total = 0;
 	campers.reset();
 	while(campers.hasNext())
-		total += (float) ((camper) (campers.getNext())).age;
-	System.out.println("Average age is: " + (float) (total/campers.size()));
+		total += ((camper) (campers.getNext())).age;
+	if (campers.size() == 0)
+		System.out.println("Average age is: 0");
+	else
+		System.out.println("Average age is: "
+		+ (float) total/campers.size());
   }
 
   static void handleL(BST campers) {
@@ -106,7 +108,7 @@ class main {
 	  System.out.println("Campers in preorder:");
 	  campers.reset(BST.PREORDER);
 	  while(campers.hasNext())
-		  System.out.println(campers.getNext());
+		  System.out.println(((camper) (campers.getNext())).name);
   }
 
   static void handleQ() {
