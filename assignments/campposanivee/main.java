@@ -90,12 +90,14 @@ class main {
   static void handleS(BST campers) {
 		int boys = 0;
 		int girls = 0;
+		campers.reset(BST.PREORDER);
 		camper Camper = new camper();
-		while(campers.search(Camper) != null) {
+		while (campers.hasNext()) {
+			Camper = (camper) campers.getNext();
 			if (Camper.sex == 'F')
-				girls++;
-			if (Camper.sex == 'M')
-				boys++;
+					girls++;
+			else if (Camper.sex == 'M')
+					boys++;
 		}
 		System.out.println("The number of boy campers is "
 							+ boys + " and the number of girl campers is "
