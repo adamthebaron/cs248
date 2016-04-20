@@ -10,22 +10,51 @@ class main {
     System.out.println("Welcome to Camp Posanivee.");
     while ((line = file.nextLine()) != null) {
 		String[] curline = line.split(" ");
-		if(line.charAt(0) == 'H')
+		if (line.charAt(0) == 'H') {
+			System.out.println("Command H:");
 			handleH();
-		else if(line.charAt(0) == 'E')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'E') {
+			System.out.println("Command E:");
 			handleE(curline, campers);
-		else if(line.charAt(0) == 'W')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'W') {
+			System.out.println("Command W:");
 			handleW(curline, campers);
-		else if(line.charAt(0) == 'D')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'D') {
+			System.out.println("Command D:");
 			handleD(curline, campers);
-		else if(line.charAt(0) == 'A')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'A') {
+			System.out.println("Command A:");
 			handleA(campers);
-		else if(line.charAt(0) == 'L')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'L') {
+			System.out.println("Command L:");
 			handleL(campers);
-		else if(line.charAt(0) == 'S')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'S') {
+			System.out.println("Command S:");
 			handleS(campers);
-		else if(line.charAt(0) == 'P')
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'P') {
+			System.out.println("Command P:");
 			handleP(campers);
+			System.out.println();
+		}
+		else if (line.charAt(0) == 'Q') {
+			System.out.println("Command Q:");
+			handleQ();
+			System.out.println();
+		}
 		}
     }
 
