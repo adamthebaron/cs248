@@ -74,13 +74,12 @@ class main {
 						+ gender);
   }
 
-  static int handleA(BST campers) {
+  static void handleA(BST campers) {
     float total = 0;
-    camper Camper = new camper();
-	while(campers.search(Camper) != null)
-		total += (float) Camper.age;
-	System.out.println("Average age is: " + (int) total);
-	return (int) (total/campers.size());
+	campers.reset();
+	while(campers.hasNext())
+		total += (float) ((camper) (campers.getNext())).age;
+	System.out.println("Average age is: " + (int) (total/campers.size()));
   }
 
   static void handleL(BST campers) {
@@ -93,10 +92,9 @@ class main {
 		campers.reset(BST.PREORDER);
 		camper Camper = new camper();
 		while (campers.hasNext()) {
-			Camper = (camper) campers.getNext();
-			if (Camper.sex == 'F')
+			if (((camper) (campers.getNext())).sex == 'F')
 					girls++;
-			else if (Camper.sex == 'M')
+			else
 					boys++;
 		}
 		System.out.println("The number of boy campers is "
