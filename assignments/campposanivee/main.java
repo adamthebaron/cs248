@@ -79,7 +79,7 @@ class main {
 	campers.reset();
 	while(campers.hasNext())
 		total += (float) ((camper) (campers.getNext())).age;
-	System.out.println("Average age is: " + (int) (total/campers.size()));
+	System.out.println("Average age is: " + (float) (total/campers.size()));
   }
 
   static void handleL(BST campers) {
