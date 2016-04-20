@@ -94,10 +94,9 @@ class main {
   static void handleD(String[] line, BST campers) {
 	camper Camper = new camper();
 	Camper.name = line[1];
-	camper displayCamper = (camper) campers.search(Camper);
-	String gender = (displayCamper.sex == 'F') ? "female" : "male";
-	System.out.println("Displaying: " + displayCamper.name + " is "
-						+ displayCamper.age + " years old and is "
+	String gender = (((camper)(campers.search(Camper))).sex == 'F') ? "female" : "male";
+	System.out.println("Displaying: " + ((camper)(campers.search(Camper))).name + " is "
+						+ ((camper)(campers.search(Camper))).age + " years old and is "
 						+ gender);
   }
 
@@ -114,13 +113,16 @@ class main {
   }
 
   static void handleL(BST campers) {
-
+		campers.reset(BST.INORDER);
+		System.out.println("Campers in alphabetical order:");
+		while(campers.hasNext())
+			System.out.println(((camper) (campers.getNext())).name);
   }
 
   static void handleS(BST campers) {
 		int boys = 0;
 		int girls = 0;
-		campers.reset(BST.PREORDER);
+		campers.reset(BST.INORDER);
 		camper Camper = new camper();
 		while (campers.hasNext()) {
 			if (((camper) (campers.getNext())).sex == 'F')

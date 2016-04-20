@@ -4,9 +4,11 @@ public class camper implements Comparable {
     char sex;
 	
 	public int compareTo(Object obj) {
-		if (obj instanceof camper)
-			return 0;
+		if (obj instanceof camper) {
+			camper c = (camper) obj;
+			return this.name.compareTo(c.name);
+		}
 		else
-			return 0;
+			return -1;
 	}
 }
