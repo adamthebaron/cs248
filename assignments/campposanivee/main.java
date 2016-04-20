@@ -1,7 +1,11 @@
+/** @author Adam Kessler */
 import java.io.*;
 import java.util.*;
 
 class main {
+	/** initialize BST, scan file
+		@param args arguments sent to the program
+	 */
   public static void main(String[] args)
   throws IOException {
     BST campers = new BST();
@@ -57,7 +61,8 @@ class main {
 		}
 		}
     }
-
+	/** print help information
+	*/
   static void handleH() {
       String help = "H: Print this help\n"
 	  + "E: Enroll a new camper\n"
@@ -70,7 +75,10 @@ class main {
 	  + "Q: Quit\n";
       System.out.print(help);
   }
-
+	/** Enroll new camper
+		@param line command line
+		@param campers BST of all enrolled campers
+	*/
   static void handleE(String[] line, BST campers) {
       camper Camper = new camper();
       Camper.name = line[1];
@@ -82,7 +90,10 @@ class main {
 			 + " with the age " + line[2]
 			 + " who is " + gender);
   }
-
+	/** Withdraw camper
+		@param line command line
+		@param campers BST of all enrolled campers
+	*/
   static void handleW(String[] line, BST campers) {
 	camper Camper = new camper();
 	Camper.name = line[1];
@@ -90,7 +101,10 @@ class main {
 	String gender = (Camper.sex == 'F') ? "female" : "male";
 	System.out.println("Removing camper " + line[1]);
   }
-
+	/** Display camper
+		@param line command line
+		@param campers BST of all enrolled campers
+	*/
   static void handleD(String[] line, BST campers) {
 	camper Camper = new camper();
 	Camper.name = line[1];
@@ -99,7 +113,9 @@ class main {
 						+ ((camper)(campers.search(Camper))).age + " years old and is "
 						+ gender);
   }
-
+	/** Print average age
+		@param campers BST of all enrolled campers
+	*/
   static void handleA(BST campers) {
     int total = 0;
 	campers.reset();
@@ -111,14 +127,18 @@ class main {
 		System.out.println("Average age is: "
 		+ (float) total/campers.size());
   }
-
+	/** List campers in alphabetical order
+		@param campers BST of all enrolled campers
+	*/
   static void handleL(BST campers) {
 		campers.reset(BST.INORDER);
 		System.out.println("Campers in alphabetical order:");
 		while(campers.hasNext())
 			System.out.println(((camper) (campers.getNext())).name);
   }
-
+	/** Print number of boy and girl campers
+		@param campers BST of all enrolled campers
+	*/
   static void handleS(BST campers) {
 		int boys = 0;
 		int girls = 0;
@@ -134,14 +154,17 @@ class main {
 							+ boys + " and the number of girl campers is "
 							+ girls);
   }
-
+	/** List campers in preorder
+		@param campers BST of all enrolled campers
+	*/
   static void handleP(BST campers) {
 	  System.out.println("Campers in preorder:");
 	  campers.reset(BST.PREORDER);
 	  while(campers.hasNext())
 		  System.out.println(((camper) (campers.getNext())).name);
   }
-
+	/** Quit program
+	*/
   static void handleQ() {
 		System.out.println("Finished managing campers.");
 		System.exit(0);
